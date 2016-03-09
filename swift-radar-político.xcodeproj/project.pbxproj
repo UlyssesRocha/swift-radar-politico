@@ -15,6 +15,7 @@
 		0B1283E21C7CBDCA00AD4B8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B1283E01C7CBDCA00AD4B8C /* LaunchScreen.storyboard */; };
 		0B1283ED1C7CBDCB00AD4B8C /* swift_radar_poli_ticoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1283EC1C7CBDCB00AD4B8C /* swift_radar_poli_ticoTests.swift */; };
 		0B1283F81C7CBDCB00AD4B8C /* swift_radar_poli_ticoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1283F71C7CBDCB00AD4B8C /* swift_radar_poli_ticoUITests.swift */; };
+		B142D5B11C908C1D00CB8EA8 /* URLManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B142D5B01C908C1D00CB8EA8 /* URLManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,8 @@
 		0B1283F31C7CBDCB00AD4B8C /* swift-radar-políticoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "swift-radar-políticoUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B1283F71C7CBDCB00AD4B8C /* swift_radar_poli_ticoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swift_radar_poli_ticoUITests.swift; sourceTree = "<group>"; };
 		0B1283F91C7CBDCB00AD4B8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B142D5AF1C908C1D00CB8EA8 /* URLManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLManager.h; sourceTree = "<group>"; };
+		B142D5B01C908C1D00CB8EA8 /* URLManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +102,10 @@
 		0B1283D31C7CBDCA00AD4B8C /* swift-radar-político */ = {
 			isa = PBXGroup;
 			children = (
+				B142D5AE1C908C1D00CB8EA8 /* DadosAbertosCD */,
+				B142D5AD1C908BB900CB8EA8 /* Controller */,
+				B142D5AC1C908BB200CB8EA8 /* View */,
+				B142D5A91C908B9A00CB8EA8 /* Model */,
 				0B1283D41C7CBDCA00AD4B8C /* AppDelegate.swift */,
 				0B1283D61C7CBDCA00AD4B8C /* ViewController.swift */,
 				0B1283D81C7CBDCA00AD4B8C /* Main.storyboard */,
@@ -127,6 +134,36 @@
 			);
 			path = "swift-radar-políticoUITests";
 			sourceTree = "<group>";
+		};
+		B142D5A91C908B9A00CB8EA8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		B142D5AC1C908BB200CB8EA8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		B142D5AD1C908BB900CB8EA8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		B142D5AE1C908C1D00CB8EA8 /* DadosAbertosCD */ = {
+			isa = PBXGroup;
+			children = (
+				B142D5AF1C908C1D00CB8EA8 /* URLManager.h */,
+				B142D5B01C908C1D00CB8EA8 /* URLManager.m */,
+			);
+			path = DadosAbertosCD;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -260,6 +297,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B1283D71C7CBDCA00AD4B8C /* ViewController.swift in Sources */,
+				B142D5B11C908C1D00CB8EA8 /* URLManager.m in Sources */,
 				0B1283D51C7CBDCA00AD4B8C /* AppDelegate.swift in Sources */,
 				0B1283DD1C7CBDCA00AD4B8C /* swift_radar_poli_tico.xcdatamodeld in Sources */,
 			);
@@ -486,6 +524,7 @@
 				0B1283FE1C7CBDCB00AD4B8C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0B1283FF1C7CBDCB00AD4B8C /* Build configuration list for PBXNativeTarget "swift-radar-políticoTests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +533,7 @@
 				0B1284011C7CBDCB00AD4B8C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0B1284021C7CBDCB00AD4B8C /* Build configuration list for PBXNativeTarget "swift-radar-políticoUITests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +542,7 @@
 				0B1284041C7CBDCB00AD4B8C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
