@@ -16,6 +16,7 @@
 		0B1283ED1C7CBDCB00AD4B8C /* swift_radar_poli_ticoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1283EC1C7CBDCB00AD4B8C /* swift_radar_poli_ticoTests.swift */; };
 		0B1283F81C7CBDCB00AD4B8C /* swift_radar_poli_ticoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1283F71C7CBDCB00AD4B8C /* swift_radar_poli_ticoUITests.swift */; };
 		B142D5B11C908C1D00CB8EA8 /* URLManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B142D5B01C908C1D00CB8EA8 /* URLManager.m */; };
+		B142D5BF1C909BF300CB8EA8 /* XMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = B142D5BE1C909BF300CB8EA8 /* XMLDictionary.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		B142D5AF1C908C1D00CB8EA8 /* URLManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLManager.h; sourceTree = "<group>"; };
 		B142D5B01C908C1D00CB8EA8 /* URLManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLManager.m; sourceTree = "<group>"; };
 		B142D5BB1C90981D00CB8EA8 /* swift-radar-politico-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "swift-radar-politico-Bridging-Header.h"; path = "../swift-radar-politico-Bridging-Header.h"; sourceTree = "<group>"; };
+		B142D5BD1C909BF300CB8EA8 /* XMLDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLDictionary.h; sourceTree = "<group>"; };
+		B142D5BE1C909BF300CB8EA8 /* XMLDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLDictionary.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,8 +106,8 @@
 		0B1283D31C7CBDCA00AD4B8C /* swift-radar-político */ = {
 			isa = PBXGroup;
 			children = (
+				B142D5C01C909BF800CB8EA8 /* Lib */,
 				B142D5BB1C90981D00CB8EA8 /* swift-radar-politico-Bridging-Header.h */,
-				B142D5AE1C908C1D00CB8EA8 /* DadosAbertosCD */,
 				B142D5AD1C908BB900CB8EA8 /* Controller */,
 				B142D5AC1C908BB200CB8EA8 /* View */,
 				B142D5A91C908B9A00CB8EA8 /* Model */,
@@ -166,6 +169,24 @@
 			);
 			path = DadosAbertosCD;
 			sourceTree = SOURCE_ROOT;
+		};
+		B142D5BC1C909BF300CB8EA8 /* XMLDictionary */ = {
+			isa = PBXGroup;
+			children = (
+				B142D5BD1C909BF300CB8EA8 /* XMLDictionary.h */,
+				B142D5BE1C909BF300CB8EA8 /* XMLDictionary.m */,
+			);
+			path = XMLDictionary;
+			sourceTree = SOURCE_ROOT;
+		};
+		B142D5C01C909BF800CB8EA8 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				B142D5AE1C908C1D00CB8EA8 /* DadosAbertosCD */,
+				B142D5BC1C909BF300CB8EA8 /* XMLDictionary */,
+			);
+			name = Lib;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -298,6 +319,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B142D5BF1C909BF300CB8EA8 /* XMLDictionary.m in Sources */,
 				0B1283D71C7CBDCA00AD4B8C /* ViewController.swift in Sources */,
 				B142D5B11C908C1D00CB8EA8 /* URLManager.m in Sources */,
 				0B1283D51C7CBDCA00AD4B8C /* AppDelegate.swift in Sources */,

@@ -13,3 +13,4 @@
 #endif /* swift_radar_politico_Bridging_Header_h */
 
 #import "URLManager.h"
+#import "XMLDictionary.h"
