@@ -1,6 +1,6 @@
 // The MIT License (MIT)
 //
-// Copyright (c) 2016 Ulysse Rocha
+// Copyright (c) 2016 Ulysses Rocha
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -22,7 +22,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface URLManager : NSObject
+@interface CDURLManager : NSObject
 
 #pragma mark Deputados
 

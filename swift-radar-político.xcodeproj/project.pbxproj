@@ -15,8 +15,15 @@
 		0B1283E21C7CBDCA00AD4B8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B1283E01C7CBDCA00AD4B8C /* LaunchScreen.storyboard */; };
 		0B1283ED1C7CBDCB00AD4B8C /* swift_radar_poli_ticoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1283EC1C7CBDCB00AD4B8C /* swift_radar_poli_ticoTests.swift */; };
 		0B1283F81C7CBDCB00AD4B8C /* swift_radar_poli_ticoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1283F71C7CBDCB00AD4B8C /* swift_radar_poli_ticoUITests.swift */; };
-		B142D5B11C908C1D00CB8EA8 /* URLManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B142D5B01C908C1D00CB8EA8 /* URLManager.m */; };
-		B142D5BF1C909BF300CB8EA8 /* XMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = B142D5BE1C909BF300CB8EA8 /* XMLDictionary.m */; };
+		49D78D130D5D64A41761DBEA /* Pods_swift_radar_poli_tico.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E37D499134E56D8226D1EE90 /* Pods_swift_radar_poli_tico.framework */; };
+		B1158EBC1C96EA2B00DDF6A8 /* CDDeputado.m in Sources */ = {isa = PBXBuildFile; fileRef = B1158EB11C96EA2B00DDF6A8 /* CDDeputado.m */; };
+		B1158EBD1C96EA2B00DDF6A8 /* CDDeputadoVotacao.m in Sources */ = {isa = PBXBuildFile; fileRef = B1158EB31C96EA2B00DDF6A8 /* CDDeputadoVotacao.m */; };
+		B1158EBE1C96EA2B00DDF6A8 /* CDPartido.m in Sources */ = {isa = PBXBuildFile; fileRef = B1158EB51C96EA2B00DDF6A8 /* CDPartido.m */; };
+		B1158EBF1C96EA2B00DDF6A8 /* CDProposicao.m in Sources */ = {isa = PBXBuildFile; fileRef = B1158EB71C96EA2B00DDF6A8 /* CDProposicao.m */; };
+		B1158EC01C96EA2B00DDF6A8 /* CDURLManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B1158EB91C96EA2B00DDF6A8 /* CDURLManager.m */; };
+		B1158EC11C96EA2B00DDF6A8 /* CDVotacao.m in Sources */ = {isa = PBXBuildFile; fileRef = B1158EBB1C96EA2B00DDF6A8 /* CDVotacao.m */; };
+		B1158EC41C96EA4000DDF6A8 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = B1158EC31C96EA4000DDF6A8 /* XMLReader.m */; };
+		B1DE27691C91B49A0084B517 /* AEXML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1DE27681C91B49A0084B517 /* AEXML.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,11 +58,25 @@
 		0B1283F31C7CBDCB00AD4B8C /* swift-radar-políticoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "swift-radar-políticoUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B1283F71C7CBDCB00AD4B8C /* swift_radar_poli_ticoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swift_radar_poli_ticoUITests.swift; sourceTree = "<group>"; };
 		0B1283F91C7CBDCB00AD4B8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B142D5AF1C908C1D00CB8EA8 /* URLManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLManager.h; sourceTree = "<group>"; };
-		B142D5B01C908C1D00CB8EA8 /* URLManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLManager.m; sourceTree = "<group>"; };
+		899EAC53C27FDF21B23889B7 /* Pods-swift-radar-político.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift-radar-político.release.xcconfig"; path = "Pods/Target Support Files/Pods-swift-radar-político/Pods-swift-radar-político.release.xcconfig"; sourceTree = "<group>"; };
+		B1158EB01C96EA2B00DDF6A8 /* CDDeputado.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDDeputado.h; sourceTree = "<group>"; };
+		B1158EB11C96EA2B00DDF6A8 /* CDDeputado.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDDeputado.m; sourceTree = "<group>"; };
+		B1158EB21C96EA2B00DDF6A8 /* CDDeputadoVotacao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDDeputadoVotacao.h; sourceTree = "<group>"; };
+		B1158EB31C96EA2B00DDF6A8 /* CDDeputadoVotacao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDDeputadoVotacao.m; sourceTree = "<group>"; };
+		B1158EB41C96EA2B00DDF6A8 /* CDPartido.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDPartido.h; sourceTree = "<group>"; };
+		B1158EB51C96EA2B00DDF6A8 /* CDPartido.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDPartido.m; sourceTree = "<group>"; };
+		B1158EB61C96EA2B00DDF6A8 /* CDProposicao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDProposicao.h; sourceTree = "<group>"; };
+		B1158EB71C96EA2B00DDF6A8 /* CDProposicao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDProposicao.m; sourceTree = "<group>"; };
+		B1158EB81C96EA2B00DDF6A8 /* CDURLManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDURLManager.h; sourceTree = "<group>"; };
+		B1158EB91C96EA2B00DDF6A8 /* CDURLManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDURLManager.m; sourceTree = "<group>"; };
+		B1158EBA1C96EA2B00DDF6A8 /* CDVotacao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDVotacao.h; sourceTree = "<group>"; };
+		B1158EBB1C96EA2B00DDF6A8 /* CDVotacao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDVotacao.m; sourceTree = "<group>"; };
+		B1158EC21C96EA4000DDF6A8 /* XMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLReader.h; sourceTree = "<group>"; };
+		B1158EC31C96EA4000DDF6A8 /* XMLReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLReader.m; sourceTree = "<group>"; };
 		B142D5BB1C90981D00CB8EA8 /* swift-radar-politico-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "swift-radar-politico-Bridging-Header.h"; path = "../swift-radar-politico-Bridging-Header.h"; sourceTree = "<group>"; };
-		B142D5BD1C909BF300CB8EA8 /* XMLDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLDictionary.h; sourceTree = "<group>"; };
-		B142D5BE1C909BF300CB8EA8 /* XMLDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLDictionary.m; sourceTree = "<group>"; };
+		B1DE27681C91B49A0084B517 /* AEXML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AEXML.framework; path = "Pods/../build/Debug-iphoneos/AEXML.framework"; sourceTree = "<group>"; };
+		E37D499134E56D8226D1EE90 /* Pods_swift_radar_poli_tico.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swift_radar_poli_tico.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F03EB1EF853D6CDCE6568779 /* Pods-swift-radar-político.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift-radar-político.debug.xcconfig"; path = "Pods/Target Support Files/Pods-swift-radar-político/Pods-swift-radar-político.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +84,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1DE27691C91B49A0084B517 /* AEXML.framework in Frameworks */,
+				49D78D130D5D64A41761DBEA /* Pods_swift_radar_poli_tico.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +113,8 @@
 				0B1283EB1C7CBDCB00AD4B8C /* swift-radar-políticoTests */,
 				0B1283F61C7CBDCB00AD4B8C /* swift-radar-políticoUITests */,
 				0B1283D21C7CBDCA00AD4B8C /* Products */,
+				A49826B858E6FD3791CECF1E /* Pods */,
+				3D788C7E5CA3B0F1D03EF976 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,18 +131,10 @@
 		0B1283D31C7CBDCA00AD4B8C /* swift-radar-político */ = {
 			isa = PBXGroup;
 			children = (
-				B142D5C01C909BF800CB8EA8 /* Lib */,
-				B142D5BB1C90981D00CB8EA8 /* swift-radar-politico-Bridging-Header.h */,
+				B142D5C11C909DEB00CB8EA8 /* Util */,
 				B142D5AD1C908BB900CB8EA8 /* Controller */,
 				B142D5AC1C908BB200CB8EA8 /* View */,
 				B142D5A91C908B9A00CB8EA8 /* Model */,
-				0B1283D41C7CBDCA00AD4B8C /* AppDelegate.swift */,
-				0B1283D61C7CBDCA00AD4B8C /* ViewController.swift */,
-				0B1283D81C7CBDCA00AD4B8C /* Main.storyboard */,
-				0B1283DE1C7CBDCA00AD4B8C /* Assets.xcassets */,
-				0B1283E01C7CBDCA00AD4B8C /* LaunchScreen.storyboard */,
-				0B1283E31C7CBDCA00AD4B8C /* Info.plist */,
-				0B1283DB1C7CBDCA00AD4B8C /* swift_radar_poli_tico.xcdatamodeld */,
 			);
 			path = "swift-radar-político";
 			sourceTree = "<group>";
@@ -140,9 +157,48 @@
 			path = "swift-radar-políticoUITests";
 			sourceTree = "<group>";
 		};
+		3D788C7E5CA3B0F1D03EF976 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B1DE27681C91B49A0084B517 /* AEXML.framework */,
+				E37D499134E56D8226D1EE90 /* Pods_swift_radar_poli_tico.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A49826B858E6FD3791CECF1E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F03EB1EF853D6CDCE6568779 /* Pods-swift-radar-político.debug.xcconfig */,
+				899EAC53C27FDF21B23889B7 /* Pods-swift-radar-político.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B1158EAF1C96EA2B00DDF6A8 /* DadosAbertosCD */ = {
+			isa = PBXGroup;
+			children = (
+				B1158EB01C96EA2B00DDF6A8 /* CDDeputado.h */,
+				B1158EB11C96EA2B00DDF6A8 /* CDDeputado.m */,
+				B1158EB21C96EA2B00DDF6A8 /* CDDeputadoVotacao.h */,
+				B1158EB31C96EA2B00DDF6A8 /* CDDeputadoVotacao.m */,
+				B1158EB41C96EA2B00DDF6A8 /* CDPartido.h */,
+				B1158EB51C96EA2B00DDF6A8 /* CDPartido.m */,
+				B1158EB61C96EA2B00DDF6A8 /* CDProposicao.h */,
+				B1158EB71C96EA2B00DDF6A8 /* CDProposicao.m */,
+				B1158EB81C96EA2B00DDF6A8 /* CDURLManager.h */,
+				B1158EB91C96EA2B00DDF6A8 /* CDURLManager.m */,
+				B1158EBA1C96EA2B00DDF6A8 /* CDVotacao.h */,
+				B1158EBB1C96EA2B00DDF6A8 /* CDVotacao.m */,
+			);
+			path = DadosAbertosCD;
+			sourceTree = "<group>";
+		};
 		B142D5A91C908B9A00CB8EA8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0B1283DB1C7CBDCA00AD4B8C /* swift_radar_poli_tico.xcdatamodeld */,
+				0B1283DE1C7CBDCA00AD4B8C /* Assets.xcassets */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -150,6 +206,9 @@
 		B142D5AC1C908BB200CB8EA8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0B1283E01C7CBDCA00AD4B8C /* LaunchScreen.storyboard */,
+				0B1283D81C7CBDCA00AD4B8C /* Main.storyboard */,
+				0B1283D61C7CBDCA00AD4B8C /* ViewController.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -161,31 +220,25 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
-		B142D5AE1C908C1D00CB8EA8 /* DadosAbertosCD */ = {
-			isa = PBXGroup;
-			children = (
-				B142D5AF1C908C1D00CB8EA8 /* URLManager.h */,
-				B142D5B01C908C1D00CB8EA8 /* URLManager.m */,
-			);
-			path = DadosAbertosCD;
-			sourceTree = SOURCE_ROOT;
-		};
-		B142D5BC1C909BF300CB8EA8 /* XMLDictionary */ = {
-			isa = PBXGroup;
-			children = (
-				B142D5BD1C909BF300CB8EA8 /* XMLDictionary.h */,
-				B142D5BE1C909BF300CB8EA8 /* XMLDictionary.m */,
-			);
-			path = XMLDictionary;
-			sourceTree = SOURCE_ROOT;
-		};
 		B142D5C01C909BF800CB8EA8 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
-				B142D5AE1C908C1D00CB8EA8 /* DadosAbertosCD */,
-				B142D5BC1C909BF300CB8EA8 /* XMLDictionary */,
+				B1158EC21C96EA4000DDF6A8 /* XMLReader.h */,
+				B1158EC31C96EA4000DDF6A8 /* XMLReader.m */,
+				B1158EAF1C96EA2B00DDF6A8 /* DadosAbertosCD */,
 			);
 			name = Lib;
+			sourceTree = "<group>";
+		};
+		B142D5C11C909DEB00CB8EA8 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				0B1283E31C7CBDCA00AD4B8C /* Info.plist */,
+				0B1283D41C7CBDCA00AD4B8C /* AppDelegate.swift */,
+				B142D5BB1C90981D00CB8EA8 /* swift-radar-politico-Bridging-Header.h */,
+				B142D5C01C909BF800CB8EA8 /* Lib */,
+			);
+			name = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,9 +248,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0B1283FC1C7CBDCB00AD4B8C /* Build configuration list for PBXNativeTarget "swift-radar-político" */;
 			buildPhases = (
+				7074D2ABA1C67EC7AB328A05 /* Check Pods Manifest.lock */,
 				0B1283CD1C7CBDCA00AD4B8C /* Sources */,
 				0B1283CE1C7CBDCA00AD4B8C /* Frameworks */,
 				0B1283CF1C7CBDCA00AD4B8C /* Resources */,
+				784805F33D3B1CE42BBE99AC /* Embed Pods Frameworks */,
+				C6E19FDF27CAD8BBA1F9A069 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -314,16 +370,69 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7074D2ABA1C67EC7AB328A05 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		784805F33D3B1CE42BBE99AC /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-swift-radar-político/Pods-swift-radar-político-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C6E19FDF27CAD8BBA1F9A069 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-swift-radar-político/Pods-swift-radar-político-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0B1283CD1C7CBDCA00AD4B8C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B142D5BF1C909BF300CB8EA8 /* XMLDictionary.m in Sources */,
+				B1158EBE1C96EA2B00DDF6A8 /* CDPartido.m in Sources */,
+				B1158EBC1C96EA2B00DDF6A8 /* CDDeputado.m in Sources */,
+				B1158EC41C96EA4000DDF6A8 /* XMLReader.m in Sources */,
 				0B1283D71C7CBDCA00AD4B8C /* ViewController.swift in Sources */,
-				B142D5B11C908C1D00CB8EA8 /* URLManager.m in Sources */,
 				0B1283D51C7CBDCA00AD4B8C /* AppDelegate.swift in Sources */,
+				B1158EBF1C96EA2B00DDF6A8 /* CDProposicao.m in Sources */,
+				B1158EBD1C96EA2B00DDF6A8 /* CDDeputadoVotacao.m in Sources */,
+				B1158EC01C96EA2B00DDF6A8 /* CDURLManager.m in Sources */,
 				0B1283DD1C7CBDCA00AD4B8C /* swift_radar_poli_tico.xcdatamodeld in Sources */,
+				B1158EC11C96EA2B00DDF6A8 /* CDVotacao.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,8 +570,13 @@
 		};
 		0B1283FD1C7CBDCB00AD4B8C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F03EB1EF853D6CDCE6568779 /* Pods-swift-radar-político.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = "swift-radar-político/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "br.com.francisceioseph.swift-radar-poli-tico";
@@ -473,8 +587,13 @@
 		};
 		0B1283FE1C7CBDCB00AD4B8C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 899EAC53C27FDF21B23889B7 /* Pods-swift-radar-político.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = "swift-radar-político/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "br.com.francisceioseph.swift-radar-poli-tico";

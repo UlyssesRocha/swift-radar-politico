@@ -1,0 +1,6 @@
+framework module Pods_swift_radar_poli_tico {
+  umbrella header "Pods-swift-radar-político-umbrella.h"
+
+  export *
+  module * { export * }
+}
