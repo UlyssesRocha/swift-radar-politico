@@ -182,7 +182,7 @@
 
 #pragma MARK Class Methods
 
-+(void)loadDistinctCodProposicoesVotedIn:(NSUInteger*)year withCompletionHandler:(void(^)(NSArray* response))completionHandler{
++(void)loadDistinctCodProposicoesVotedIn:(NSUInteger)year withCompletionHandler:(void(^)(NSArray* response))completionHandler{
     
     [CDProposicao loadCodProposicoesVotedIn:year withCompletionHandler:^(NSArray *response) {
         
@@ -194,7 +194,7 @@
 
 
 
-+(void)loadCodProposicoesVotedIn:(NSUInteger*)year withCompletionHandler:(void(^)(NSArray* response))completionHandler{
++(void)loadCodProposicoesVotedIn:(NSUInteger)year withCompletionHandler:(void(^)(NSArray* response))completionHandler{
     
     if ( year == NULL || completionHandler == NULL) {
         return;

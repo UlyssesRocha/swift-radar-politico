@@ -39,7 +39,7 @@
 -(void)loadProposicao:(void(^)(void))completionHandler;
 -(void)loadVotacoes:(void(^)(void))completionHandler;
 
-+(void)loadDistinctCodProposicoesVotedIn:(NSUInteger*)year withCompletionHandler:(void(^)(NSArray* response))completionHandler;
-+(void)loadCodProposicoesVotedIn:(NSUInteger*)year withCompletionHandler:(void(^)(NSArray* response))completionHandler;
++(void)loadDistinctCodProposicoesVotedIn:(NSUInteger)year withCompletionHandler:(void(^)(NSArray* response))completionHandler;
++(void)loadCodProposicoesVotedIn:(NSUInteger)year withCompletionHandler:(void(^)(NSArray* response))completionHandler;
 
 @end

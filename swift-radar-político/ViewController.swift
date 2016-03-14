@@ -14,34 +14,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view, typically from a nib.
+
         
-        
-//        let url = CDURLManager.obterPartidosCD()
-//        
-//        let partidos = NSData(contentsOfURL: NSURL(string: url)!)
-//        
-//        do{
-//            
-//            let dados = try AEXMLDocument(xmlData: partidos!)
-//            if let partido = dados.root["partido"].all {
-//                for sP in partido {
-//                     print(sP["idPartido"].stringValue)
+//        CDDeputado.loadDeputados { (deputados) -> Void in
+//            for i in deputados{
+//                if let deputado = i as? CDDeputado{
+//                    print(deputado.nomeParlamentar)
 //                }
 //            }
-//        }catch{
-//            
 //        }
-        
-        
-        
-        CDDeputado.loadDeputados { (deputados) -> Void in
-            for i in deputados{
-                if let deputado = i as? CDDeputado{
-                    print(deputado.nomeParlamentar)
-                }
-            }
-        }
         
     }
 
