@@ -195,10 +195,10 @@
         NSMutableArray* responseArray = [[NSMutableArray alloc] initWithCapacity:0];
         NSMutableSet *auxSet = [[NSMutableSet alloc] init];
         
-        for (int i = [response count]-1; i>= 0; i--){
+        for (int i = 0; i < [response count]; i++){
             if ([auxSet containsObject:[response objectAtIndex:i]] == NO){ //Add to subset
                 [auxSet addObject:[response objectAtIndex:i]];
-                [responseArray insertObject:[response objectAtIndex:i] atIndex:0];
+                [responseArray addObject:[response objectAtIndex:i]];
             }
         }
 
@@ -244,7 +244,7 @@
             NSDate *elementA = [df dateFromString:[[(NSDictionary*)a objectForKey:@"dataVotacao"] objectForKey:@"text"]];
             NSDate *elementB = [df dateFromString:[[(NSDictionary*)b objectForKey:@"dataVotacao"] objectForKey:@"text"]];
             
-            return [elementA compare:elementB];
+            return [elementB compare:elementA];
         }];
         
         completionHandler([[sortedArray valueForKey: @"codProposicao"] valueForKey:@"text"] );

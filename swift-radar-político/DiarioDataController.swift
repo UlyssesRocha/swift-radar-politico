@@ -9,35 +9,45 @@
 import UIKit
 
 
+@objc protocol DiarioDataControllerDelegate{
+    func didUpdateData()
+    optional func didFailToUpdate()
+    optional func noMoreDataAvaliable()
+}
+
+
 class DiarioDataController: NSObject {
     //Singleton
     static let sharedInstance = DiarioDataController()
-    private override init() {}
-
+    
+    private override init() {
+        super.init()
+        self.loadCongressVotedPropositionsFrom(year: 2016)
+    }
+    
+    //Delegate
+    var delegate:DiarioDataControllerDelegate? = nil
+    
     //Variables
-    private var proposicoes:[CDProposicao] = []
-    
-    
+    var proposicoes:[CDProposicao] = []
+    private var sizeOfPage:Int = 5 //Number of Propositions Load at "once" in each request
     
 //MARK: Public Functions
-    func loadCongressVotedPropositions(){
-        
+    func loadNextPageOfPropositions(){
     }
     
 //MARK: Private Functions
 
    private func loadCongressVotedPropositionsFrom(year year:UInt){
-        
         CDProposicao.loadDistinctCodProposicoesVotedIn(year, withCompletionHandler: { (votacoes) -> Void in
             for i in votacoes {
-                if let prepId = i as? NSString{
+                if let prepId = i as? NSString{ 
                     let proposicao = CDProposicao.init(codProposicao: prepId.integerValue)
                     self.proposicoes.append(proposicao)
                 }
             }
-            self.loadPreposicaoAtIndex(0)
+            self.loadPreposicaoAtIndex(0);
         })
-
     }
     
 
@@ -54,6 +64,7 @@ class DiarioDataController: NSObject {
                     }else{
                         print("erro votacao \(self.proposicoes[index].idProposicao) ")
                     }
+                    self.delegate?.didUpdateData()
                     self.loadPreposicaoAtIndex(index+1)
                 })
             }

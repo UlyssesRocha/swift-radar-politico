@@ -8,15 +8,14 @@
 
 import UIKit
 
-class DiarioPoliticoTableViewController: UITableViewController {
-
-    
+class DiarioPoliticoTableViewController: UITableViewController, DiarioDataControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        DiarioDataController.sharedInstance.loadCongressVotedPropositions()
-          }
-    
+        DiarioDataController.sharedInstance.delegate = self
+        DiarioDataController.sharedInstance.loadNextPageOfPropositions()
+        
+    }
 
 
     override func didReceiveMemoryWarning() {
@@ -33,7 +32,7 @@ class DiarioPoliticoTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return DiarioDataController.sharedInstance.proposicoes.count
     }
     
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -42,10 +41,14 @@ class DiarioPoliticoTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
 
-//        cell.textLabel?.text = proposicoes[indexPath.row].nome
-//        cell.detailTextLabel?.text = proposicoes[indexPath.row].nomeAutor
+        cell.textLabel?.text = DiarioDataController.sharedInstance.proposicoes[indexPath.row].nome
+        cell.detailTextLabel?.text = DiarioDataController.sharedInstance.proposicoes[indexPath.row].nomeAutor
         
         return cell
+    }
+    
+    func didUpdateData() {
+        self.tableView.reloadData()
     }
 
     /*
