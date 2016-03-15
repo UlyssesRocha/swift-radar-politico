@@ -11,45 +11,12 @@ import UIKit
 class DiarioPoliticoTableViewController: UITableViewController {
 
     
-    var proposicoes:[CDProposicao] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let ano:UInt = 2015
-        CDProposicao.loadDistinctCodProposicoesVotedIn(ano, withCompletionHandler: { (votacoes) -> Void in
-            for i in votacoes {
-                if let prepId = i as? NSString{
-                    let proposicao = CDProposicao.init(codProposicao: prepId.integerValue)
-                    self.proposicoes.append(proposicao)
-                }
-            }
-            self.loadPreposicaoAtIndex(0)
-            self.tableView.reloadData()
-        })
-    }
+        DiarioDataController.sharedInstance.loadCongressVotedPropositions()
+          }
     
-    // testing --------------
-    func loadPreposicaoAtIndex(var index:Int){
-        if index >= self.proposicoes.count{
-            return
-        }
-        
-        print("inicia carregamento preposicao \(proposicoes[index].idProposicao)")
-        proposicoes[index].loadProposicao({ () -> Void in
-            if self.proposicoes[index].nome != nil{
-                self.proposicoes[index].loadVotacoes({ () -> Void in
-                    if let _ = self.proposicoes[index].votacoes{
-                    }else{
-                        print("erro votacao \(self.proposicoes[index].idProposicao) ")
-                    }
-                    self.tableView.reloadData()
-                    self.loadPreposicaoAtIndex(index+1)
-                })
-            }
-        })
-    }
-    // testing --------------
 
 
     override func didReceiveMemoryWarning() {
@@ -66,7 +33,7 @@ class DiarioPoliticoTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return proposicoes.count
+        return 1
     }
     
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -75,8 +42,8 @@ class DiarioPoliticoTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
 
-        cell.textLabel?.text = proposicoes[indexPath.row].nome
-        cell.detailTextLabel?.text = proposicoes[indexPath.row].nomeAutor
+//        cell.textLabel?.text = proposicoes[indexPath.row].nome
+//        cell.detailTextLabel?.text = proposicoes[indexPath.row].nomeAutor
         
         return cell
     }
