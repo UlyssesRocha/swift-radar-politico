@@ -51,13 +51,13 @@
             }
             
             self.votacoes = [[NSArray alloc]initWithArray:votacoes];
-            
-            completionHandler();
         }
+        completionHandler();
     }];
 }
 
 -(void)loadProposicao:(void(^)(void))completionHandler{
+    
     [self loadPreposicaoFromServer:^(NSDictionary *response) {
         if (response){
             //Number Formatter to convert String to Number.
@@ -88,6 +88,12 @@
                 self.idAutor = [formater numberFromString:localIdAutor];
             }
             
+            //DEBUG -------------
+            if (self.nome != NULL){
+            }else{
+                NSLog(@" %@  error",self.idProposicao);
+            }
+            //DEBUG -------------
             completionHandler();
         }
     }];
