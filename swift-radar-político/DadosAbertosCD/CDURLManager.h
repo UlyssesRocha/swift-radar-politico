@@ -141,7 +141,7 @@
  * \param idOrgaoSituacaoProposicao (Opcional) ID do órgão de referência da situação da proposição
  * \param emTramitacao (Opcional) Indicador da situação de tramitação da proposição<BR>1 - Em Tramitação no Congresso; 2- Tramitação Encerrada no Congresso; Default - Todas
  */
-+ (NSString*)listarPreposicoesPorSigla:(NSString*)sigla comNumero:(NSString*)numero noAno:(NSString*)ano comDatApresetacaoIni:(NSString*)datApresentacaoIni comDataApresentacaoFim:(NSString*)datApresentacaoFim comIdTipoAutor:(NSString*)idTipoAutor comParteNomeAutor:(NSString*)parteNomeAutor comSiglaPartidoAutor:(NSString*)siglaPartidoAutor comUFAutor:(NSString*)siglaUfAutor comGeneroAutor:(NSString*)generoAutor comIDSituacaoProposicao:(NSString*)idsituacaoProposicao comIDOrgaoSituacaoProposicao:(NSString*)idOrgaoSituacaoProposicao comTramitacao:(NSString*)emTramitacao;
++ (NSString*)listarProposicoesPorSigla:(NSString*)sigla comNumero:(NSString*)numero noAno:(NSString*)ano comDatApresetacaoIni:(NSString*)datApresentacaoIni comDataApresentacaoFim:(NSString*)datApresentacaoFim comIdTipoAutor:(NSString*)idTipoAutor comParteNomeAutor:(NSString*)parteNomeAutor comSiglaPartidoAutor:(NSString*)siglaPartidoAutor comUFAutor:(NSString*)siglaUfAutor comGeneroAutor:(NSString*)generoAutor comIDSituacaoProposicao:(NSString*)idsituacaoProposicao comIDOrgaoSituacaoProposicao:(NSString*)idOrgaoSituacaoProposicao comTramitacao:(NSString*)emTramitacao;
 
 /**
  * Retorna a lista de siglas de proposições

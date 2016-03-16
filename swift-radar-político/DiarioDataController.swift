@@ -19,10 +19,14 @@ import UIKit
 class DiarioDataController: NSObject {
     //Singleton
     static let sharedInstance = DiarioDataController()
-    
     private override init() {
         super.init()
-        self.loadCongressVotedPropositionsFrom(year: 2016)
+        
+        //load current year data
+        let calendar = NSCalendar.init(calendarIdentifier: NSCalendarIdentifierGregorian)
+        let currentYearInt = (calendar?.component(NSCalendarUnit.Year, fromDate: NSDate()))!
+
+        self.loadCongressVotedPropositionsFrom(year: currentYearInt)
     }
     
     //Delegate
@@ -30,42 +34,68 @@ class DiarioDataController: NSObject {
     
     //Variables
     var proposicoes:[CDProposicao] = []
+    var lastLoadedProposition:Int = 0
+
+    private var lastLoadYearOfVotes:Int = Int.max
+    private var loadingData = false
     private var sizeOfPage:Int = 5 //Number of Propositions Load at "once" in each request
     
 //MARK: Public Functions
     func loadNextPageOfPropositions(){
+        if loadingData == false{
+            loadingData = true
+            if lastLoadedProposition == proposicoes.count && self.lastLoadYearOfVotes != 0{ //Ended of the array, load the year BEFORE!
+                self.loadCongressVotedPropositionsFrom(year: self.lastLoadYearOfVotes - 1)
+            }else{
+                self.loadProposicaoIn(lastLoadedProposition, endIndex: lastLoadedProposition + sizeOfPage)
+            }
+        }
     }
     
 //MARK: Private Functions
 
-   private func loadCongressVotedPropositionsFrom(year year:UInt){
-        CDProposicao.loadDistinctCodProposicoesVotedIn(year, withCompletionHandler: { (votacoes) -> Void in
+   private func loadCongressVotedPropositionsFrom(year year:Int){
+    //To make sure the porposicoesArray will be in descending order, make it impossible to load a year n and then a n+1
+        if self.lastLoadYearOfVotes <= year {
+            return
+        }
+    
+        CDProposicao.loadDistinctCodProposicoesVotedIn(UInt(year), withCompletionHandler: { (votacoes) -> Void in
             for i in votacoes {
                 if let prepId = i as? NSString{ 
                     let proposicao = CDProposicao.init(codProposicao: prepId.integerValue)
                     self.proposicoes.append(proposicao)
                 }
             }
-            self.loadPreposicaoAtIndex(0);
+            
+            self.lastLoadYearOfVotes = year
+            self.loadingData = false
+            self.loadNextPageOfPropositions()
         })
     }
     
-
-    func loadPreposicaoAtIndex(var index:Int){
-        if index >= self.proposicoes.count{
+    func loadProposicaoIn(var currentIndex:Int, endIndex:Int){
+        
+        if currentIndex >= self.proposicoes.count || currentIndex > endIndex{
+            self.loadingData = false
             return
         }
         
-        print("inicia carregamento preposicao \(proposicoes[index].idProposicao)")
-        proposicoes[index].loadProposicao({ () -> Void in
-            if self.proposicoes[index].nome != nil{
-                self.proposicoes[index].loadVotacoes({ () -> Void in
-                    if let _ = self.proposicoes[index].votacoes{
+        print("inicia carregamento proposicao \(proposicoes[currentIndex].idProposicao)")
+        proposicoes[currentIndex].loadProposicao({ () -> Void in
+            //If Loaded successfully the proposition, load the votes
+            if self.proposicoes[currentIndex].nome != nil{
+                //If loaded the votes, call the next
+                self.proposicoes[currentIndex].loadVotacoes({ () -> Void in
+                    if let _ = self.proposicoes[currentIndex].votacoes{
+                        currentIndex++ // Load the Next !
                     }else{
-                        print("erro votacao \(self.proposicoes[index].idProposicao) ")
+                        print("erro votacao \(self.proposicoes[currentIndex].idProposicao) ") //if not, it will try to load the same again.
                     }
+                    
+                    self.lastLoadedProposition = currentIndex
+                    self.loadProposicaoIn(currentIndex, endIndex: endIndex)
                     self.delegate?.didUpdateData()
-                    self.loadPreposicaoAtIndex(index+1)
                 })
             }
         })

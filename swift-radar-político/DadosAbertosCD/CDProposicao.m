@@ -13,7 +13,7 @@
 #import "CDVotacao.h"
 
 @interface CDProposicao () 
-- (void)loadPreposicaoFromServer:(void(^)(NSDictionary* response))completionHandler;
+- (void)loadProposicaoFromServer:(void(^)(NSDictionary* response))completionHandler;
 - (void)loadVotacoesFromServer:(void(^)(NSArray* response))completionHandler;
 @end
 
@@ -58,7 +58,7 @@
 
 -(void)loadProposicao:(void(^)(void))completionHandler{
     
-    [self loadPreposicaoFromServer:^(NSDictionary *response) {
+    [self loadProposicaoFromServer:^(NSDictionary *response) {
         if (response){
             //Number Formatter to convert String to Number.
             NSNumberFormatter *formater = [[NSNumberFormatter alloc] init];
@@ -151,7 +151,7 @@
 }
 
 
-- (void)loadPreposicaoFromServer:(void(^)(NSDictionary* response))completionHandler{
+- (void)loadProposicaoFromServer:(void(^)(NSDictionary* response))completionHandler{
     
     if ( self.idProposicao == NULL || completionHandler == NULL) {
         return;

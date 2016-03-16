@@ -13,8 +13,6 @@ class DiarioPoliticoTableViewController: UITableViewController, DiarioDataContro
     override func viewDidLoad() {
         super.viewDidLoad()
         DiarioDataController.sharedInstance.delegate = self
-        DiarioDataController.sharedInstance.loadNextPageOfPropositions()
-        
     }
 
 
@@ -32,10 +30,25 @@ class DiarioPoliticoTableViewController: UITableViewController, DiarioDataContro
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return DiarioDataController.sharedInstance.proposicoes.count
+        return DiarioDataController.sharedInstance.lastLoadedProposition
     }
     
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+    }
+    
+    override func scrollViewDidScroll(scrollView: UIScrollView) {
+        
+        //NOT SURE IF NEED THIS DISPATCH
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0)) { () -> Void in
+            let currentOffset = scrollView.contentOffset.y
+            let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
+            
+            // Change 10.0 to adjust the distance from bottom
+            if (maximumOffset - currentOffset <= 10.0) {
+                DiarioDataController.sharedInstance.loadNextPageOfPropositions()
+            }
+        }
+        
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

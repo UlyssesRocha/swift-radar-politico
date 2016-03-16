@@ -85,7 +85,7 @@
 
 #pragma mark Proposicoes
 
-+ (NSString*)listarPreposicoesPorSigla:(NSString*)sigla comNumero:(NSString*)numero noAno:(NSString*)ano comDatApresetacaoIni:(NSString*)datApresentacaoIni comDataApresentacaoFim:(NSString*)datApresentacaoFim comIdTipoAutor:(NSString*)idTipoAutor comParteNomeAutor:(NSString*)parteNomeAutor comSiglaPartidoAutor:(NSString*)siglaPartidoAutor comUFAutor:(NSString*)siglaUfAutor comGeneroAutor:(NSString*)generoAutor comIDSituacaoProposicao:(NSString*)idsituacaoProposicao comIDOrgaoSituacaoProposicao:(NSString*)idOrgaoSituacaoProposicao comTramitacao:(NSString*)emTramitacao{
++ (NSString*)listarProposicoesPorSigla:(NSString*)sigla comNumero:(NSString*)numero noAno:(NSString*)ano comDatApresetacaoIni:(NSString*)datApresentacaoIni comDataApresentacaoFim:(NSString*)datApresentacaoFim comIdTipoAutor:(NSString*)idTipoAutor comParteNomeAutor:(NSString*)parteNomeAutor comSiglaPartidoAutor:(NSString*)siglaPartidoAutor comUFAutor:(NSString*)siglaUfAutor comGeneroAutor:(NSString*)generoAutor comIDSituacaoProposicao:(NSString*)idsituacaoProposicao comIDOrgaoSituacaoProposicao:(NSString*)idOrgaoSituacaoProposicao comTramitacao:(NSString*)emTramitacao{
     
     return [NSString stringWithFormat:@("hhttp://www.camara.gov.br/SitCamaraWS/Proposicoes.asmx/ListarProposicoes?sigla=%@&numero=%@&ano=%@&datApresentacaoIni=%@&datApresentacaoFim=%@&parteNomeAutor=%@&idTipoAutor=%@&siglaPartidoAutor=%@&siglaUFAutor=%@&generoAutor=%@&codEstado=%@&codOrgaoEstado=%@&emTramitacao=%@"),sigla,numero,ano,datApresentacaoIni,datApresentacaoFim,parteNomeAutor,idTipoAutor,siglaPartidoAutor,siglaUfAutor,generoAutor,idsituacaoProposicao,idOrgaoSituacaoProposicao,emTramitacao];
 }
