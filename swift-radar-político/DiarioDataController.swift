@@ -44,9 +44,11 @@ class DiarioDataController: NSObject {
     func loadNextPageOfPropositions(){
         if loadingData == false{
             loadingData = true
-            if lastLoadedProposition == proposicoes.count && self.lastLoadYearOfVotes != 0{ //Ended of the array, load the year BEFORE!
+            if lastLoadedProposition == proposicoes.count && self.lastLoadYearOfVotes != Int.max{ //Ended of the array, load the year BEFORE!
+                print("vou carregar mais meta proposicoes de outros anos@@")
                 self.loadCongressVotedPropositionsFrom(year: self.lastLoadYearOfVotes - 1)
             }else{
+                print("vou carregar mais proposicoes")
                 self.loadProposicaoIn(lastLoadedProposition, endIndex: lastLoadedProposition + sizeOfPage)
             }
         }

@@ -52,16 +52,32 @@ class DiarioPoliticoTableViewController: UITableViewController, DiarioDataContro
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("Proposicao", forIndexPath: indexPath) as! ProposicaoTableViewCell
 
-        cell.textLabel?.text = DiarioDataController.sharedInstance.proposicoes[indexPath.row].nome
-        cell.detailTextLabel?.text = DiarioDataController.sharedInstance.proposicoes[indexPath.row].nomeAutor
+        cell.title.text = DiarioDataController.sharedInstance.proposicoes[indexPath.row].nome
+        
+        if let votacao =  DiarioDataController.sharedInstance.proposicoes[indexPath.row].votacoes.first as? CDVotacao{
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateStyle = .ShortStyle
+            
+            cell.date.text  = dateFormatter.stringFromDate(votacao.data)
+            
+            cell.summaryProposicao.text = DiarioDataController.sharedInstance.proposicoes[indexPath.row].ementa
+            cell.summaryProposicao.scrollRectToVisible(CGRect(x: 0,y: 0,width: 0,height: 1), animated: false)
+        }
+        
         
         return cell
     }
     
     func didUpdateData() {
         self.tableView.reloadData()
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+            
+        return  150
     }
 
     /*
