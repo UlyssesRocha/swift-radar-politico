@@ -19,6 +19,7 @@ import UIKit
 class DiarioDataController: NSObject {
     //Singleton
     static let sharedInstance = DiarioDataController()
+    
     private override init() {
         super.init()
         
@@ -39,14 +40,15 @@ class DiarioDataController: NSObject {
     private var lastLoadYearOfVotes:Int = Int.max
     private var loadingData = false
     private var sizeOfPage:Int = 5 //Number of Propositions Load at "once" in each request
+    private var connectionError = false
     
 //MARK: Public Functions
     func loadNextPageOfPropositions(){
         if loadingData == false{
             loadingData = true
             if lastLoadedProposition == proposicoes.count && self.lastLoadYearOfVotes != Int.max{ //Ended of the array, load the year BEFORE!
-                print("vou carregar mais meta proposicoes de outros anos@@")
-                self.loadCongressVotedPropositionsFrom(year: self.lastLoadYearOfVotes - 1)
+                print("vou carregar mais meta proposicoes de outros anos \(self.lastLoadYearOfVotes - (self.connectionError == true ? 0 : 1))")
+                self.loadCongressVotedPropositionsFrom(year: self.lastLoadYearOfVotes - (self.connectionError == true ? 0 : 1))
             }else{
                 print("vou carregar mais proposicoes")
                 self.loadProposicaoIn(lastLoadedProposition, endIndex: lastLoadedProposition + sizeOfPage)
@@ -62,17 +64,25 @@ class DiarioDataController: NSObject {
             return
         }
     
-        CDProposicao.loadDistinctCodProposicoesVotedIn(UInt(year), withCompletionHandler: { (votacoes) -> Void in
+        CDProposicao.loadDistinctCodProposicoesVotedIn(UInt(year), withCompletionHandler: { [weak self](votacoes) -> Void in
+            
             for i in votacoes {
                 if let prepId = i as? NSString{ 
                     let proposicao = CDProposicao.init(codProposicao: prepId.integerValue)
-                    self.proposicoes.append(proposicao)
+                    self?.proposicoes.append(proposicao)
                 }
             }
             
-            self.lastLoadYearOfVotes = year
-            self.loadingData = false
-            self.loadNextPageOfPropositions()
+            //ERROR LOADING INFORMATION?
+            if votacoes.count == 0{
+                self?.connectionError = true
+                print("Error loading Information, Check for Internet Connection or Server Error")
+            }else{
+                self?.lastLoadYearOfVotes = year
+            }
+            
+            self?.loadingData = false
+            self?.loadNextPageOfPropositions()
         })
     }
     
@@ -88,16 +98,16 @@ class DiarioDataController: NSObject {
             //If Loaded successfully the proposition, load the votes
             if self.proposicoes[currentIndex].nome != nil{
                 //If loaded the votes, call the next
-                self.proposicoes[currentIndex].loadVotacoes({ () -> Void in
-                    if let _ = self.proposicoes[currentIndex].votacoes{
-                        currentIndex++ // Load the Next !
+                self.proposicoes[currentIndex].loadVotacoes({ [weak self]() -> Void in
+                    if let _ = self?.proposicoes[currentIndex].votacoes{
+                        currentIndex += 1 // Load the Next !
                     }else{
-                        print("erro votacao \(self.proposicoes[currentIndex].idProposicao) ") //if not, it will try to load the same again.
+                        print("erro votacao \(self?.proposicoes[currentIndex].idProposicao) ") //if not, it will try to load the same again.
                     }
                     
-                    self.lastLoadedProposition = currentIndex
-                    self.loadProposicaoIn(currentIndex, endIndex: endIndex)
-                    self.delegate?.didUpdateData()
+                    self?.lastLoadedProposition = currentIndex
+                    self?.loadProposicaoIn(currentIndex, endIndex: endIndex)
+                    self?.delegate?.didUpdateData()
                 })
             }
         })

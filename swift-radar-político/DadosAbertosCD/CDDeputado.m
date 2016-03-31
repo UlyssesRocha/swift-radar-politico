@@ -37,7 +37,7 @@
             return;
         }
         //Parse from Dictionary for CDDeputado Object
-        NSArray *test = [[[[xmlDictionary allValues] objectAtIndex:0] allValues] objectAtIndex:0];
+        NSArray *test = [[[xmlDictionary objectForKey:@"deputados"] objectForKey:@"deputado"]allObjects] ;
         NSMutableArray *responseArray = [[NSMutableArray alloc]init];
         
         //Initiate each CDDeputado Object

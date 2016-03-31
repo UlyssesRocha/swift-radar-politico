@@ -8,21 +8,12 @@
 
 import UIKit
 
+
+
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
-        
-//        CDDeputado.loadDeputados { (deputados) -> Void in
-//            for i in deputados{
-//                if let deputado = i as? CDDeputado{
-//                    print(deputado.nomeParlamentar)
-//                }
-//            }
-//        }
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,6 +21,8 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    
+    
 
 }
 
