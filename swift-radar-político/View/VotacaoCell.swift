@@ -37,7 +37,6 @@ class VotacaoCell: UITableViewCell, UITableViewDelegate, UITableViewDataSource {
         if section == 0{
             return 1
         }
-        
         return DeputadosDataController.sharedInstance.getNumberOfFollowedDeputados()
     }
     

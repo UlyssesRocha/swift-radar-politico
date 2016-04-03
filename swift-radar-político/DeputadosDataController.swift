@@ -19,13 +19,14 @@ class DeputadosDataController: NSObject {
     
     private override init() {
         super.init()
+        
+        //Load list of followed deputados
+        self.loadFollowedDeputados()
+        
         //Load deputados From server
         CDDeputado.loadDeputados { (reponseArray) in
             self.deputados = reponseArray.sort { $0.nomeParlamentar < $1.nomeParlamentar } as? [CDDeputado]
-            print("Loaded Deputados")
         }
-        //Load list of followed deputados
-        self.loadFollowedDeputados()
     }
 
     private func saveFollowedDeputados(){

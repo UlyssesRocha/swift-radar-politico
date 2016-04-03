@@ -54,6 +54,14 @@ class DiarioPoliticoTableViewController: UITableViewController, DiarioDataContro
         return cell
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.performSegueWithIdentifier("DetalhesProposicao", sender: DiarioDataController.sharedInstance.proposicoes[indexPath.row])
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let detalhesView =  segue.destinationViewController as! DetalhesProposicaoViewController
+        detalhesView.loadProposicao(sender as! CDProposicao)
+    }
     
     func didUpdateData() {
         self.tableView.reloadData()

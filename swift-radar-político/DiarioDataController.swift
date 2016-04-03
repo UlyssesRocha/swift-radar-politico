@@ -87,7 +87,6 @@ class DiarioDataController: NSObject {
     }
     
     func loadProposicaoIn(var currentIndex:Int, endIndex:Int){
-        
         if currentIndex >= self.proposicoes.count || currentIndex > endIndex{
             self.loadingData = false
             return
