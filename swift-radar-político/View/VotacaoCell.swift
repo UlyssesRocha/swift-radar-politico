@@ -76,7 +76,7 @@ class VotacaoCell: UITableViewCell, UITableViewDelegate, UITableViewDataSource {
                 return i.objectForKey("Voto") as! String
             }
         }
-        return "Ausente"
+        return "Sem Voto"
     }
 }
 
