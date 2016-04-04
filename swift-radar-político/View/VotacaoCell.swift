@@ -26,6 +26,8 @@ class VotacaoCell: UITableViewCell, UITableViewDelegate, UITableViewDataSource {
         self.tableView.layer.cornerRadius = 5.0
         self.tableView.clipsToBounds = true
         self.tableView.layer.masksToBounds = true
+        
+        self.tableView.rowHeight = UITableViewAutomaticDimension
     }
 
     

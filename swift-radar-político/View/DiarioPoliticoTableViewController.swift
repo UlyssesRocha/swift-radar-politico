@@ -12,6 +12,7 @@ class DiarioPoliticoTableViewController: UITableViewController, DiarioDataContro
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         DiarioDataController.sharedInstance.delegate = self
     }
     
