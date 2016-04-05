@@ -13,7 +13,6 @@ class VotacaoCell: UITableViewCell, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     
     private var proposicao:CDProposicao?
-//    private let deputados = ["Antônio Jácome","Rubens Pereira Júnior","Chico D Angelo","Silas Brasileiro","Nilmário Miranda","Carmen Zanotto","Bilac Pinto","Lucio Vieira Lima","Lincoln Portela","Mendonça Filho","Luis Carlos Heinze"]
     
     
     func loadWithVotacao(proposicao:CDProposicao){

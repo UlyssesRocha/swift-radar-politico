@@ -276,7 +276,7 @@
         <scene sceneID="BpL-7d-NLJ">
             <objects>
                 <tableViewController storyboardIdentifier="DetalhesProposicao" id="Ovv-IB-Uw6" customClass="DetalhesProposicaoViewController" customModule="swift_radar_poli_tico" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="194" sectionHeaderHeight="28" sectionFooterHeight="28" id="C1m-iU-64A">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="108" sectionHeaderHeight="28" sectionFooterHeight="28" id="C1m-iU-64A">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -381,51 +381,49 @@
                             </variation>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetalheCell" rowHeight="194" id="Xti-4t-Fan" customClass="DetalheCell" customModule="swift_radar_poli_tico" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="327" width="600" height="194"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetalheCell" id="Xti-4t-Fan" customClass="DetalheCell" customModule="swift_radar_poli_tico" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="327" width="600" height="108"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xti-4t-Fan" id="H4y-4w-GIE">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="193.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="107.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="oRE-4C-SUR">
-                                            <rect key="frame" x="8" y="30.5" width="584" height="163"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="163" id="qpj-yz-d3E"/>
-                                            </constraints>
-                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                        </textView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Io-xF-HHA">
                                             <rect key="frame" x="8" y="8" width="42" height="19.5"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="body" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gff-PD-mEg">
+                                            <rect key="frame" x="11" y="41" width="581" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="kD0-pA-q2R"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="oRE-4C-SUR" firstAttribute="top" secondItem="2Io-xF-HHA" secondAttribute="bottom" constant="3" id="0af-rZ-qy4"/>
                                         <constraint firstAttribute="leadingMargin" secondItem="2Io-xF-HHA" secondAttribute="leading" id="LkF-do-Wvy"/>
-                                        <constraint firstAttribute="leadingMargin" secondItem="oRE-4C-SUR" secondAttribute="leading" id="bcq-Jr-ZCT"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="oRE-4C-SUR" secondAttribute="bottom" constant="-8" id="eE6-Q3-ScU"/>
+                                        <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="gff-PD-mEg" secondAttribute="trailing" id="Zx1-xg-eyb"/>
+                                        <constraint firstItem="gff-PD-mEg" firstAttribute="top" secondItem="2Io-xF-HHA" secondAttribute="bottom" constant="13.5" id="hAn-0l-1wz"/>
                                         <constraint firstAttribute="topMargin" secondItem="2Io-xF-HHA" secondAttribute="top" id="jQi-xy-b5f"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="oRE-4C-SUR" secondAttribute="trailing" id="kwa-wR-sf5"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="gff-PD-mEg" secondAttribute="trailing" id="mCN-I8-oHa"/>
                                         <constraint firstAttribute="leadingMargin" secondItem="2Io-xF-HHA" secondAttribute="leading" id="qTu-cA-ixe"/>
-                                        <constraint firstItem="oRE-4C-SUR" firstAttribute="top" secondItem="2Io-xF-HHA" secondAttribute="bottom" constant="3" id="t0E-iv-u5J"/>
+                                        <constraint firstItem="gff-PD-mEg" firstAttribute="leading" secondItem="H4y-4w-GIE" secondAttribute="leadingMargin" constant="3" id="vmu-id-yFc"/>
                                         <constraint firstAttribute="topMargin" secondItem="2Io-xF-HHA" secondAttribute="top" id="yPp-l4-9re"/>
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">
                                             <exclude reference="qTu-cA-ixe"/>
                                             <exclude reference="yPp-l4-9re"/>
-                                            <exclude reference="0af-rZ-qy4"/>
+                                            <exclude reference="Zx1-xg-eyb"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="dataText" destination="oRE-4C-SUR" id="zh5-A8-gj9"/>
+                                    <outlet property="dataText" destination="gff-PD-mEg" id="Dzj-hP-E7S"/>
                                     <outlet property="infoLabel" destination="2Io-xF-HHA" id="eex-j4-amm"/>
                                 </connections>
                             </tableViewCell>

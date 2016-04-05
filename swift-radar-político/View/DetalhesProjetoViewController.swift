@@ -38,6 +38,7 @@ class DetalhesProposicaoViewController: UITableViewController {
                 return !element["data"]!.isEmpty
             })
         
+        
         self.tableView.reloadData()
     }
     
@@ -45,6 +46,11 @@ class DetalhesProposicaoViewController: UITableViewController {
         super.viewDidLoad()
         
         self.tituloProposicaoLabel.text = proposicao?.nome
+        
+//        self.tableView.estimatedRowHeight = 80
+//        self.tableView.rowHeight = UITableViewAutomaticDimension
+//        self.tableView.setNeedsLayout()
+//        self.tableView.layoutIfNeeded()
         self.tableView.reloadData()
     }
 
@@ -63,7 +69,12 @@ class DetalhesProposicaoViewController: UITableViewController {
         return  0
     }
     
-
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        let itemData = getNextDetailItem(indexPath.row)
+        
+        return self.calculateHeightForString(itemData.1) + 50
+    }
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("DetalheCell", forIndexPath: indexPath) as! DetalheCell
 
@@ -73,6 +84,16 @@ class DetalhesProposicaoViewController: UITableViewController {
         cell.dataText.text = itemData.1
         
         return cell
+    }
+    
+    
+    private func calculateHeightForString(inString:String) -> CGFloat{
+        let messageString = inString
+        let attributes = [NSFontAttributeName: UIFont.systemFontOfSize(17.0)]
+        let attrString:NSAttributedString? = NSAttributedString(string: messageString, attributes: attributes)
+        let rect:CGRect = attrString!.boundingRectWithSize(CGSizeMake(300.0,CGFloat.max), options: NSStringDrawingOptions.UsesLineFragmentOrigin, context:nil )
+        let requredSize:CGRect = rect
+        return requredSize.height
     }
     
     private func calcNumberOfRows()->Int{
