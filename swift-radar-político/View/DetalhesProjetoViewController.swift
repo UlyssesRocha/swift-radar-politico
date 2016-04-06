@@ -38,7 +38,6 @@ class DetalhesProposicaoViewController: UITableViewController {
                 return !element["data"]!.isEmpty
             })
         
-        
         self.tableView.reloadData()
     }
     
@@ -47,11 +46,7 @@ class DetalhesProposicaoViewController: UITableViewController {
         
         self.tituloProposicaoLabel.text = proposicao?.nome
         
-//        self.tableView.estimatedRowHeight = 80
-//        self.tableView.rowHeight = UITableViewAutomaticDimension
-//        self.tableView.setNeedsLayout()
-//        self.tableView.layoutIfNeeded()
-        self.tableView.reloadData()
+//        self.tableView.reloadData()
     }
 
 

@@ -11,6 +11,8 @@ import UIKit
 
 @objc protocol DiarioDataControllerDelegate{
     func didUpdateData()
+    optional func willLoadData()
+    optional func didStopLoadData()
     optional func didFailToUpdate()
     optional func noMoreDataAvaliable()
 }
@@ -45,7 +47,11 @@ class DiarioDataController: NSObject {
 //MARK: Public Functions
     func loadNextPageOfPropositions(){
         if loadingData == false{
+            
+            self.delegate?.willLoadData?()
+            
             loadingData = true
+            
             if lastLoadedProposition == proposicoes.count && self.lastLoadYearOfVotes != Int.max{ //Ended of the array, load the year BEFORE!
                 print("vou carregar mais meta proposicoes de outros anos \(self.lastLoadYearOfVotes - (self.connectionError == true ? 0 : 1))")
                 self.loadCongressVotedPropositionsFrom(year: self.lastLoadYearOfVotes - (self.connectionError == true ? 0 : 1))
@@ -81,6 +87,7 @@ class DiarioDataController: NSObject {
                 self?.lastLoadYearOfVotes = year
             }
             
+            self?.delegate?.didStopLoadData?()
             self?.loadingData = false
             self?.loadNextPageOfPropositions()
         })
@@ -88,6 +95,7 @@ class DiarioDataController: NSObject {
     
     func loadProposicaoIn(var currentIndex:Int, endIndex:Int){
         if currentIndex >= self.proposicoes.count || currentIndex > endIndex{
+            self.delegate?.didStopLoadData?()
             self.loadingData = false
             return
         }

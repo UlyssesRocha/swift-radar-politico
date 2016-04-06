@@ -10,9 +10,10 @@ import UIKit
 
 class DiarioPoliticoTableViewController: UITableViewController, DiarioDataControllerDelegate {
     
+    private var isLoadingData = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         DiarioDataController.sharedInstance.delegate = self
     }
     
@@ -23,16 +24,19 @@ class DiarioPoliticoTableViewController: UITableViewController, DiarioDataContro
     // MARK: - Table view data source
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 1 + (isLoadingData == true ? 1 : 0)
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return DiarioDataController.sharedInstance.lastLoadedProposition
+        if section == 0{
+            return DiarioDataController.sharedInstance.lastLoadedProposition
+        }
+        return 1
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return CGFloat((45)+(240)+((40)*DeputadosDataController.sharedInstance.getNumberOfFollowedDeputados()))
+        return CGFloat((240)+((40)*DeputadosDataController.sharedInstance.getNumberOfFollowedDeputados()))
     }
 
     override func scrollViewDidScroll(scrollView: UIScrollView) {
@@ -49,14 +53,22 @@ class DiarioPoliticoTableViewController: UITableViewController, DiarioDataContro
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCellWithIdentifier("VotacaoCell", forIndexPath: indexPath) as! VotacaoCell
-        cell.loadWithVotacao(DiarioDataController.sharedInstance.proposicoes[indexPath.row])
+        var cell:UITableViewCell
+        if indexPath.section == 0{
+            cell = tableView.dequeueReusableCellWithIdentifier("VotacaoCell", forIndexPath: indexPath) as! VotacaoCell
+            (cell as! VotacaoCell).loadWithVotacao(DiarioDataController.sharedInstance.proposicoes[indexPath.row])
+            
+        }else{
+            cell = tableView.dequeueReusableCellWithIdentifier("LoadingCell", forIndexPath: indexPath)
+            (cell.viewWithTag(1) as! UIActivityIndicatorView).startAnimating()
+        }
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.performSegueWithIdentifier("DetalhesProposicao", sender: DiarioDataController.sharedInstance.proposicoes[indexPath.row])
+        if indexPath.section == 0{
+            self.performSegueWithIdentifier("DetalhesProposicao", sender: DiarioDataController.sharedInstance.proposicoes[indexPath.row])
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -68,4 +80,12 @@ class DiarioPoliticoTableViewController: UITableViewController, DiarioDataContro
         self.tableView.reloadData()
     }
     
+    func willLoadData() {
+        isLoadingData = true
+        self.tableView.reloadData()
+    }
+    func didStopLoadData() {
+        isLoadingData = false
+        self.tableView.reloadData()
+    }
 }
