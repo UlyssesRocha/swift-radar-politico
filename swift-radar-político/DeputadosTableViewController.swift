@@ -26,6 +26,7 @@ class DeputadosTableViewController: UITableViewController {
     
     override func viewWillAppear(animated: Bool) {
         self.tableView.reloadData()
+        self.navigationController?.navigationBar.topItem?.title = "Deputados Federais"
     }
     
     // MARK: - Table view data source

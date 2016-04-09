@@ -12,8 +12,9 @@ class ConteudoCell: UITableViewCell {
 
     @IBOutlet weak var nomeProposicaoLabel: UILabel!
     @IBOutlet weak var dataVotacaoLabel: UILabel!
-    @IBOutlet weak var descricaoProposicaoText: UITextView!
-    @IBOutlet weak var objetoVotacaoText: UITextView!
+    @IBOutlet weak var objetoVotacaoText: UILabel!
+    @IBOutlet weak var descricaoProposicaoText: UILabel!
+    
     
     func loadWithProposicao(proposicao:CDProposicao,votacao:CDVotacao){
         
@@ -21,16 +22,10 @@ class ConteudoCell: UITableViewCell {
         
         self.descricaoProposicaoText.text = proposicao.ementa
         self.objetoVotacaoText.text = votacao.objVotacao
-        self.descricaoProposicaoText.scrollRectToVisible(CGRect(x: 0,y: 0,width: 0,height: 0), animated: false)
         
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.locale = NSLocale.currentLocale()
-        dateFormatter.dateFormat = "dd MMM yyyy HH:mm"
-        
-        self.dataVotacaoLabel.text  = dateFormatter.stringFromDate(votacao.data)
+        self.dataVotacaoLabel.text  = votacao.data.getFormatedDateString()
         
         self.setNeedsLayout()
         self.setNeedsUpdateConstraints()
     }
-    
 }

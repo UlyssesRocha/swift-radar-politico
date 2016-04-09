@@ -19,16 +19,16 @@ class DiarioPoliticoTableViewController: UITableViewController, DiarioDataContro
     
     override func viewWillAppear(animated: Bool) {
         self.tableView.reloadData()
+        
+        self.navigationController?.navigationBar.topItem?.title = "Votações Na Câmara"
     }
 
     // MARK: - Table view data source
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1 + (isLoadingData == true ? 1 : 0)
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         if section == 0{
             return DiarioDataController.sharedInstance.lastLoadedProposition
         }
@@ -36,19 +36,16 @@ class DiarioPoliticoTableViewController: UITableViewController, DiarioDataContro
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return CGFloat((240)+((40)*DeputadosDataController.sharedInstance.getNumberOfFollowedDeputados()))
+        return CGFloat((240)+((40)*DeputadosDataController.sharedInstance.getNumberOfFollowedDeputados())) + 20
     }
 
     override func scrollViewDidScroll(scrollView: UIScrollView) {
-        //NOT SURE IF NEED THIS DISPATCH
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0)) { () -> Void in
-            let currentOffset = scrollView.contentOffset.y
-            let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
-            
-            // Change 10.0 to adjust the distance from bottom
-            if (maximumOffset - currentOffset <= 10.0) {
-                DiarioDataController.sharedInstance.loadNextPageOfPropositions()
-            }
+        let currentOffset = scrollView.contentOffset.y
+        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
+        
+        // Change 10.0 to adjust the distance from bottom
+        if (maximumOffset - currentOffset <= 10.0) {
+            DiarioDataController.sharedInstance.loadNextPageOfPropositions()
         }
     }
 

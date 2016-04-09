@@ -11,18 +11,14 @@ import UIKit
 class DetalhesProposicaoViewController: UITableViewController {
 
     @IBOutlet weak var tituloProposicaoLabel: UILabel!
-    
-    @IBOutlet weak var autorImage: UIImageView!
-    
     @IBOutlet weak var autorNomeLabel: UILabel!
-    
-    @IBOutlet weak var autorPartidoLabel: UILabel!
-    
     @IBOutlet weak var lerProjetoButton: UIButton!
+    
     
     private var proposicao:CDProposicao?
     private let sections = ["Detalhes","Votacoes"]
     private var dataRaw:[[String:String]] = [[:]]
+    
     
     func loadProposicao(proposicao:CDProposicao){
         self.proposicao = proposicao
@@ -45,19 +41,16 @@ class DetalhesProposicaoViewController: UITableViewController {
         super.viewDidLoad()
         
         self.tituloProposicaoLabel.text = proposicao?.nome
-        
-//        self.tableView.reloadData()
+        self.autorNomeLabel.text = proposicao?.nomeAutor
     }
 
 
     // MARK: - Table view data source
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return self.sections.count
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         if section == 0{
             return calcNumberOfRows()
         }
@@ -65,32 +58,35 @@ class DetalhesProposicaoViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        let itemData = getNextDetailItem(indexPath.row)
         
-        return self.calculateHeightForString(itemData.1) + 50
+        let itemData = getNextDetailItem(indexPath.row)
+        return itemData.1.calculateHeightForString(16.0, screnSize: self.view.frame.size, padding: 35.0) + 50
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("DetalheCell", forIndexPath: indexPath) as! DetalheCell
 
         let itemData = getNextDetailItem(indexPath.row)
-        
         cell.infoLabel?.text = itemData.0
         cell.dataText.text = itemData.1
         
         return cell
     }
     
-    
-    private func calculateHeightForString(inString:String) -> CGFloat{
-        let messageString = inString
-        let attributes = [NSFontAttributeName: UIFont.systemFontOfSize(17.0)]
-        let attrString:NSAttributedString? = NSAttributedString(string: messageString, attributes: attributes)
-        let rect:CGRect = attrString!.boundingRectWithSize(CGSizeMake(300.0,CGFloat.max), options: NSStringDrawingOptions.UsesLineFragmentOrigin, context:nil )
-        let requredSize:CGRect = rect
-        return requredSize.height
+    @IBAction func lerProjeto(sender: AnyObject) {
+        
+        if let proposicao = self.proposicao,
+            let urlString = proposicao.urlInteiroTeor,
+            let url = NSURL(string: urlString){
+            
+            UIApplication.sharedApplication().openURL(url)
+            
+        }else{
+            print("error")
+        }
     }
     
+    //MARK: Private Func
     private func calcNumberOfRows()->Int{
         return self.dataRaw.count
     }

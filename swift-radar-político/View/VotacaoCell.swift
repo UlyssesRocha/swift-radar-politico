@@ -26,6 +26,7 @@ class VotacaoCell: UITableViewCell, UITableViewDelegate, UITableViewDataSource {
         self.tableView.clipsToBounds = true
         self.tableView.layer.masksToBounds = true
         
+        self.tableView.estimatedRowHeight = 230.0
         self.tableView.rowHeight = UITableViewAutomaticDimension
     }
 
@@ -61,7 +62,7 @@ class VotacaoCell: UITableViewCell, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if indexPath.section == 0{
-            return 230
+            return 240.0
         }
         return 40
     }

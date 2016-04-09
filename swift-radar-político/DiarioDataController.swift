@@ -21,7 +21,6 @@ import UIKit
 class DiarioDataController: NSObject {
     //Singleton
     static let sharedInstance = DiarioDataController()
-    
     private override init() {
         super.init()
         
@@ -93,7 +92,10 @@ class DiarioDataController: NSObject {
         })
     }
     
-    func loadProposicaoIn(var currentIndex:Int, endIndex:Int){
+    func loadProposicaoIn(index:Int, endIndex:Int){
+        
+        var currentIndex = index
+        
         if currentIndex >= self.proposicoes.count || currentIndex > endIndex{
             self.delegate?.didStopLoadData?()
             self.loadingData = false
