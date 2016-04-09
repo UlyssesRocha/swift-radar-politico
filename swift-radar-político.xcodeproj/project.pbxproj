@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0B1283D51C7CBDCA00AD4B8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1283D41C7CBDCA00AD4B8C /* AppDelegate.swift */; };
-		0B1283D71C7CBDCA00AD4B8C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1283D61C7CBDCA00AD4B8C /* ViewController.swift */; };
 		0B1283DA1C7CBDCA00AD4B8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B1283D81C7CBDCA00AD4B8C /* Main.storyboard */; };
 		0B1283DD1C7CBDCA00AD4B8C /* swift_radar_poli_tico.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0B1283DB1C7CBDCA00AD4B8C /* swift_radar_poli_tico.xcdatamodeld */; };
 		0B1283DF1C7CBDCA00AD4B8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B1283DE1C7CBDCA00AD4B8C /* Assets.xcassets */; };
@@ -56,7 +55,6 @@
 /* Begin PBXFileReference section */
 		0B1283D11C7CBDCA00AD4B8C /* swift-radar-político.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "swift-radar-político.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B1283D41C7CBDCA00AD4B8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0B1283D61C7CBDCA00AD4B8C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0B1283D91C7CBDCA00AD4B8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0B1283DC1C7CBDCA00AD4B8C /* swift_radar_poli_tico.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = swift_radar_poli_tico.xcdatamodel; sourceTree = "<group>"; };
 		0B1283DE1C7CBDCA00AD4B8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -242,7 +240,6 @@
 				B12389491C999E4600D50ACB /* Diario */,
 				0B1283E01C7CBDCA00AD4B8C /* LaunchScreen.storyboard */,
 				0B1283D81C7CBDCA00AD4B8C /* Main.storyboard */,
-				0B1283D61C7CBDCA00AD4B8C /* ViewController.swift */,
 				B1DD84E61CB979F0008A5097 /* Extensions.swift */,
 				B174392B1CB9B28900AAD6EF /* Constants.swift */,
 			);
@@ -476,7 +473,6 @@
 				B16E964C1CAF4EAE0036D2D0 /* DetalhesProjetoViewController.swift in Sources */,
 				B1158EC41C96EA4000DDF6A8 /* XMLReader.m in Sources */,
 				B14E23C61CAB231E00F0F518 /* DeputadoCell.swift in Sources */,
-				0B1283D71C7CBDCA00AD4B8C /* ViewController.swift in Sources */,
 				0B1283D51C7CBDCA00AD4B8C /* AppDelegate.swift in Sources */,
 				B1DFF3741CB0AC4500DD683B /* DetalheCell.swift in Sources */,
 				B1158EBF1C96EA2B00DDF6A8 /* CDProposicao.m in Sources */,

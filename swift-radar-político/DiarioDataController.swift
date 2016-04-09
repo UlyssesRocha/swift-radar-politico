@@ -19,6 +19,7 @@ import UIKit
 
 
 class DiarioDataController: NSObject {
+    
     //Singleton
     static let sharedInstance = DiarioDataController()
     
@@ -46,6 +47,7 @@ class DiarioDataController: NSObject {
     
 //MARK: Public Functions
     func loadNextPageOfPropositions(){
+        
         if loadingData == false{
             
             self.delegate?.willLoadData?()
@@ -65,6 +67,7 @@ class DiarioDataController: NSObject {
 //MARK: Private Functions
 
    private func loadCongressVotedPropositionsFrom(year year:Int){
+    
     //To make sure the porposicoesArray will be in descending order, make it impossible to load a year n and then a n+1
         if self.lastLoadYearOfVotes <= year {
             return

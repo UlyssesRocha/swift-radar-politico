@@ -13,35 +13,45 @@ class DiarioPoliticoTableViewController: UITableViewController, DiarioDataContro
     private var isLoadingData = false
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        
         DiarioDataController.sharedInstance.delegate = self
         
         self.tableView.backgroundColor = UIColor(netHex: Constants.background)
     }
     
     override func viewWillAppear(animated: Bool) {
-        self.tableView.reloadData()
         
+        self.tableView.reloadData()
         self.navigationController?.navigationBar.topItem?.title = "Votações Na Câmara"
     }
 
-    // MARK: - Table view data source
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        let detalhesView =  segue.destinationViewController as! DetalhesProposicaoViewController
+        detalhesView.loadProposicao(sender as! CDProposicao)
+    }
+
+    // MARK: - Table view Delegate
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        
         return 1 + (isLoadingData == true ? 1 : 0)
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0{
-            return DiarioDataController.sharedInstance.lastLoadedProposition
-        }
-        return 1
+        
+        return (section == 0 ? DiarioDataController.sharedInstance.lastLoadedProposition : 1)
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        
+        //TODO: calculate dynamic height
         return CGFloat((240)+((40)*DeputadosDataController.sharedInstance.getNumberOfFollowedDeputados())) + 20
     }
 
     override func scrollViewDidScroll(scrollView: UIScrollView) {
+        
         let currentOffset = scrollView.contentOffset.y
         let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
         
@@ -52,6 +62,7 @@ class DiarioPoliticoTableViewController: UITableViewController, DiarioDataContro
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
         var cell:UITableViewCell
         if indexPath.section == 0{
             cell = tableView.dequeueReusableCellWithIdentifier("VotacaoCell", forIndexPath: indexPath) as! VotacaoCell
@@ -65,16 +76,14 @@ class DiarioPoliticoTableViewController: UITableViewController, DiarioDataContro
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
         if indexPath.section == 0{
             self.performSegueWithIdentifier("DetalhesProposicao", sender: DiarioDataController.sharedInstance.proposicoes[indexPath.row])
         }
     }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let detalhesView =  segue.destinationViewController as! DetalhesProposicaoViewController
-        detalhesView.loadProposicao(sender as! CDProposicao)
-    }
-    
+
+
+    //MARK:DiarioDataControllerDelegate
     func didUpdateData() {
         self.tableView.reloadData()
     }

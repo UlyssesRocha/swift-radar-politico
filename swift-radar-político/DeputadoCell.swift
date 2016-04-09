@@ -32,6 +32,7 @@ class DeputadoCell: UITableViewCell {
     
     
     func loadWithDeputado(deputado:CDDeputado){
+        
         self.deputado = deputado
         
         self.nomeLabel.text = self.deputado?.nomeParlamentar.capitalizedString
@@ -50,11 +51,13 @@ class DeputadoCell: UITableViewCell {
     }
     
     override func awakeFromNib(){
+        
         self.seguindoSwitch.onImage = UIImage(named: "Unfollow")
         self.seguindoSwitch.offImage = UIImage(named: "Follow")
     }
     
     override func prepareForReuse() {
+        
         self.deputado = nil
         self.fotoImage.image = nil
         self.seguindoSwitch.on = false

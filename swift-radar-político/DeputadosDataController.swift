@@ -18,6 +18,7 @@ class DeputadosDataController: NSObject {
     private let userDefaults = NSUserDefaults.standardUserDefaults()
     
     private override init() {
+        
         super.init()
         
         //Load list of followed deputados
@@ -28,13 +29,15 @@ class DeputadosDataController: NSObject {
             self.deputados = reponseArray.sort { $0.nomeParlamentar < $1.nomeParlamentar } as? [CDDeputado]
         }
     }
-
+    
     private func saveFollowedDeputados(){
+        
         let array = self.followedDeputadosID?.allObjects
         userDefaults.setObject(array, forKey:"followed")
     }
     
     private func loadFollowedDeputados(){
+        
         if let deputadosIdArray = userDefaults.objectForKey("followed") as? [Int]{
             self.followedDeputadosID = NSMutableSet(array: deputadosIdArray)
         }else{ //Create
@@ -43,19 +46,23 @@ class DeputadosDataController: NSObject {
     }
     
     func isDeputadoFoollowed(deputadoId:Int)->Bool{
+        
         return followedDeputadosID!.containsObject(deputadoId)
     }
     
     func followDeputadoWithId(id:Int){
+        
         followedDeputadosID!.addObject(id)
         self.saveFollowedDeputados()
     }
     func unfollowDeputadoWithId(id:Int){
+        
         followedDeputadosID?.removeObject(Int(id))
         self.saveFollowedDeputados()
     }
     
     func getNumberOfFollowedDeputados()->Int{
+        
         return followedDeputadosID!.count
     }
     
@@ -65,7 +72,7 @@ class DeputadosDataController: NSObject {
             return nil
         }
         
-        //liear search, could be optimzed
+        //TODO: Improve Search
         for i in self.deputados!{
             if Int(i.ideCadastro) == Int(self.followedDeputadosID!.allObjects[index] as! NSNumber){
                 return i

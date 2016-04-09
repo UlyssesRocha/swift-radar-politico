@@ -14,6 +14,7 @@ class DeputadosTableViewController: UITableViewController,UISearchBarDelegate, U
     let searchController = UISearchController(searchResultsController: nil)
 
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         self.searchController.searchResultsUpdater = self
@@ -27,34 +28,34 @@ class DeputadosTableViewController: UITableViewController,UISearchBarDelegate, U
     }
     
     override func viewWillAppear(animated: Bool) {
+        
         self.tableView.reloadData()
         self.navigationController?.navigationBar.topItem?.title = "Deputados Federais"
     }
     
     // MARK: - Table view data source
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        
         return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if searchController.active {
-            return self.filteredResults.count
-        }
-        return DeputadosDataController.sharedInstance.deputados?.count ?? 0
+        
+        return  searchController.active ? self.filteredResults.count :DeputadosDataController.sharedInstance.deputados?.count ?? 0
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCellWithIdentifier("DeputadoCell", forIndexPath: indexPath) as! DeputadoCell
-        if searchController.active {
-            cell.loadWithDeputado(filteredResults[indexPath.row])
-        }else{
-            cell.loadWithDeputado(DeputadosDataController.sharedInstance.deputados![indexPath.row])
-        }
-        return cell
+        
+            cell.loadWithDeputado(searchController.active ? filteredResults[indexPath.row] :  DeputadosDataController.sharedInstance.deputados![indexPath.row] )
+        
+         return cell
     }
     
     
     func filterContentForSearchText(searchText: String , scope: String = "Todos") {
+        
         self.filteredResults = DeputadosDataController.sharedInstance.deputados!.filter({( deputado : CDDeputado) -> Bool in
             
             var scopeFilter:Bool = false
@@ -86,12 +87,14 @@ class DeputadosTableViewController: UITableViewController,UISearchBarDelegate, U
 
     // MARK: - UISearchBar Delegate
     func searchBar(searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        
         filterContentForSearchText(searchBar.text!, scope: searchBar.scopeButtonTitles![selectedScope])
         tableView.reloadData()
     }
     
     // MARK: - UISearchResultsUpdating Delegate
     func updateSearchResultsForSearchController(searchController: UISearchController) {
+        
         let searchBar = searchController.searchBar
         let scope = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
         filterContentForSearchText(searchController.searchBar.text!, scope: scope)

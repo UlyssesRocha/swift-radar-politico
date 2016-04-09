@@ -22,8 +22,8 @@ class DetalhesProposicaoViewController: UITableViewController {
     
     
     func loadProposicao(proposicao:CDProposicao){
-        self.proposicao = proposicao
         
+        self.proposicao = proposicao
         self.dataRaw = [
             ["data" : proposicao.tipoProposicao ,"info" : "Tipo de Proposição"],
             ["data" : proposicao.tema ,"info" : "Tema"],
@@ -39,6 +39,7 @@ class DetalhesProposicaoViewController: UITableViewController {
     }
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         self.tituloProposicaoLabel.text = proposicao?.nome
@@ -52,14 +53,13 @@ class DetalhesProposicaoViewController: UITableViewController {
 
     // MARK: - Table view data source
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        
         return self.sections.count
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0{
-            return calcNumberOfRows()
-        }
-        return  0
+        
+        return (section == 0 ? calcNumberOfRows() : 0)
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -69,6 +69,7 @@ class DetalhesProposicaoViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCellWithIdentifier("DetalheCell", forIndexPath: indexPath) as! DetalheCell
 
         let itemData = getNextDetailItem(indexPath.row)
@@ -79,12 +80,15 @@ class DetalhesProposicaoViewController: UITableViewController {
     }
     
     @IBAction func lerProjeto(sender: AnyObject) {
+        
         if let proposicao = self.proposicao,
             let urlString = proposicao.urlInteiroTeor,
             let url = NSURL(string: urlString){
-            UIApplication.sharedApplication().openURL(url)
+            
+            UIApplication.sharedApplication().openURL(url) //Opens Safari to show the file
         }else{
             print("error")
+            //TODO: Error message
         }
     }
     
