@@ -21,6 +21,7 @@ import UIKit
 class DiarioDataController: NSObject {
     //Singleton
     static let sharedInstance = DiarioDataController()
+    
     private override init() {
         super.init()
         

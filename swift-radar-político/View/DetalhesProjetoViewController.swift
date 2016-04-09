@@ -74,13 +74,10 @@ class DetalhesProposicaoViewController: UITableViewController {
     }
     
     @IBAction func lerProjeto(sender: AnyObject) {
-        
         if let proposicao = self.proposicao,
             let urlString = proposicao.urlInteiroTeor,
             let url = NSURL(string: urlString){
-            
             UIApplication.sharedApplication().openURL(url)
-            
         }else{
             print("error")
         }

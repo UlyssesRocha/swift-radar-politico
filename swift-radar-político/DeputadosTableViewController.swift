@@ -8,19 +8,21 @@
 
 import UIKit
 
-class DeputadosTableViewController: UITableViewController {
+class DeputadosTableViewController: UITableViewController,UISearchBarDelegate, UISearchResultsUpdating{
+    
+    var filteredResults:[CDDeputado] = []
+    let searchController = UISearchController(searchResultsController: nil)
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-        DeputadosDataController.sharedInstance.followDeputadoWithId(178957)
-        DeputadosDataController.sharedInstance.followDeputadoWithId(178914)
+        self.searchController.searchResultsUpdater = self
+        self.searchController.searchBar.delegate = self
+        definesPresentationContext = true
+        self.searchController.dimsBackgroundDuringPresentation = false
+        
+        tableView.tableHeaderView = searchController.searchBar
+        searchController.searchBar.scopeButtonTitles = ["Todos", "Titulares", "Suplentes", "Seguindo"]
 
     }
     
@@ -30,23 +32,64 @@ class DeputadosTableViewController: UITableViewController {
     }
     
     // MARK: - Table view data source
-
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+        if searchController.active {
+            return self.filteredResults.count
+        }
         return DeputadosDataController.sharedInstance.deputados?.count ?? 0
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("DeputadoCell", forIndexPath: indexPath) as! DeputadoCell
-        
-        cell.loadWithDeputado(DeputadosDataController.sharedInstance.deputados![indexPath.row])
-
+        if searchController.active {
+            cell.loadWithDeputado(filteredResults[indexPath.row])
+        }else{
+            cell.loadWithDeputado(DeputadosDataController.sharedInstance.deputados![indexPath.row])
+        }
         return cell
+    }
+    
+    
+    func filterContentForSearchText(searchText: String , scope: String = "Todos") {
+        self.filteredResults = DeputadosDataController.sharedInstance.deputados!.filter({( deputado : CDDeputado) -> Bool in
+            var scopeFilter:Bool = false
+            switch scope {
+                case "Seguindo":
+                scopeFilter = DeputadosDataController.sharedInstance.isDeputadoFoollowed(Int(deputado.ideCadastro))
+                case "Titulares":
+                scopeFilter = deputado.condicao! == "Titular"
+                case "Suplentes":
+                scopeFilter = deputado.condicao! == "Suplente"
+                default:
+                scopeFilter = true
+            }
+            
+            if searchText == "" {
+                return scopeFilter
+            }
+            
+            return scopeFilter && (deputado.nome.lowercaseString.containsString(searchText.lowercaseString) || (deputado.partido.lowercaseString.containsString(searchText.lowercaseString) || (deputado.nomeParlamentar.lowercaseString.containsString(searchText.lowercaseString))))
+        })
+        tableView.reloadData()
+    }
+
+    // MARK: - UISearchBar Delegate
+    func searchBar(searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        filterContentForSearchText(searchBar.text!, scope: searchBar.scopeButtonTitles![selectedScope])
+        tableView.reloadData()
+    }
+    
+    // MARK: - UISearchResultsUpdating Delegate
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+        let scope = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
+        filterContentForSearchText(searchController.searchBar.text!, scope: scope)
     }
 
 }
+
+

@@ -398,14 +398,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="6HD-pI-VcF">
-                            <rect key="frame" x="0.0" y="64" width="600" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DeputadoCell" rowHeight="60" id="vUU-Oe-F8G" customClass="DeputadoCell" customModule="swift_radar_poli_tico" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="136" width="600" height="60"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vUU-Oe-F8G" id="JyP-5a-WWc">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="59.5"/>
@@ -474,7 +469,7 @@
                     <tabBarItem key="tabBarItem" title="Deputados" id="ceQ-VR-7l0"/>
                     <navigationItem key="navigationItem" title="Deputados" id="TU0-xf-DED"/>
                     <connections>
-                        <outlet property="searchDisplayController" destination="fGx-mw-OMz" id="Eo5-zw-yhr"/>
+                        <outlet property="searchDisplayController" destination="35W-N8-dYV" id="yo3-qY-Idx"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z8r-ok-8sE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -492,6 +487,14 @@
                         <outlet property="searchContentsController" destination="mGh-Nt-y6G" id="lZS-82-iCB"/>
                         <outlet property="searchResultsDataSource" destination="mGh-Nt-y6G" id="IjI-6g-HR7"/>
                         <outlet property="searchResultsDelegate" destination="mGh-Nt-y6G" id="RUo-U1-zkc"/>
+                    </connections>
+                </searchDisplayController>
+                <searchDisplayController id="35W-N8-dYV">
+                    <connections>
+                        <outlet property="delegate" destination="mGh-Nt-y6G" id="gPK-mG-rF2"/>
+                        <outlet property="searchContentsController" destination="mGh-Nt-y6G" id="2sq-pT-wPX"/>
+                        <outlet property="searchResultsDataSource" destination="mGh-Nt-y6G" id="kyF-hQ-WNh"/>
+                        <outlet property="searchResultsDelegate" destination="mGh-Nt-y6G" id="rgI-IJ-tAJ"/>
                     </connections>
                 </searchDisplayController>
             </objects>

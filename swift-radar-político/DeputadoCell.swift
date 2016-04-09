@@ -39,7 +39,7 @@ class DeputadoCell: UITableViewCell {
         self.fotoImage.layer.cornerRadius = 15;
         self.fotoImage.layer.masksToBounds = true
         self.fotoImage.layer.borderWidth = 1
-        self.fotoImage.layer.borderColor = UIColor.blackColor().CGColor
+        self.fotoImage.layer.borderColor = UIColor.yellowColor().CGColor
         self.deputado?.loadPhoto(self.fotoImage)
         
         if DeputadosDataController.sharedInstance.isDeputadoFoollowed(Int(self.deputado!.ideCadastro)){
@@ -52,14 +52,6 @@ class DeputadoCell: UITableViewCell {
         self.fotoImage.image = nil
         self.seguindoSwitch.on = false
     }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
 
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-         }
 
 }

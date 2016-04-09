@@ -9,8 +9,6 @@
 import UIKit
 
 class DetalheCell: UITableViewCell {
-
     @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var dataText: UILabel!
-    
 }
