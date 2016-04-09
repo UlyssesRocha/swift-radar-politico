@@ -15,6 +15,8 @@ class DiarioPoliticoTableViewController: UITableViewController, DiarioDataContro
     override func viewDidLoad() {
         super.viewDidLoad()
         DiarioDataController.sharedInstance.delegate = self
+        
+        self.tableView.backgroundColor = UIColor(netHex: Constants.background)
     }
     
     override func viewWillAppear(animated: Bool) {

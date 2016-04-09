@@ -25,9 +25,7 @@ class VotacaoCell: UITableViewCell, UITableViewDelegate, UITableViewDataSource {
         self.tableView.layer.cornerRadius = 5.0
         self.tableView.clipsToBounds = true
         self.tableView.layer.masksToBounds = true
-        
-        self.tableView.estimatedRowHeight = 230.0
-        self.tableView.rowHeight = UITableViewAutomaticDimension
+
     }
 
     
@@ -55,6 +53,7 @@ class VotacaoCell: UITableViewCell, UITableViewDelegate, UITableViewDataSource {
         if let deputado = DeputadosDataController.sharedInstance.getFollowedDeputadoWith(indexPath.row){
             cell.textLabel!.text = deputado.nomeParlamentar.capitalizedString
             cell.detailTextLabel?.text = self.getVoteFromDeputadoWithName(deputado.nomeParlamentar.capitalizedString, inVotacao: proposicao!.votacoes.last as! CDVotacao)
+            cell.roundCorner()
         }
         
         return cell

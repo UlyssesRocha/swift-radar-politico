@@ -25,6 +25,9 @@ class ConteudoCell: UITableViewCell {
         
         self.dataVotacaoLabel.text  = votacao.data.getFormatedDateString()
         
+        self.highlightCorner()
+        self.roundCorner()
+        
         self.setNeedsLayout()
         self.setNeedsUpdateConstraints()
     }

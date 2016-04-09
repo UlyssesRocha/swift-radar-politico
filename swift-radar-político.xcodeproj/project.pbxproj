@@ -30,6 +30,7 @@
 		B14E23C91CAB614500F0F518 /* DeputadosDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14E23C81CAB614500F0F518 /* DeputadosDataController.swift */; };
 		B14E23CB1CAB6CC300F0F518 /* DeputadosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14E23CA1CAB6CC300F0F518 /* DeputadosTableViewController.swift */; };
 		B16E964C1CAF4EAE0036D2D0 /* DetalhesProjetoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16E964B1CAF4EAE0036D2D0 /* DetalhesProjetoViewController.swift */; };
+		B174392C1CB9B28900AAD6EF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B174392B1CB9B28900AAD6EF /* Constants.swift */; };
 		B1D228FF1C984A35006C6FEB /* DiarioDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D228FE1C984A35006C6FEB /* DiarioDataController.swift */; };
 		B1DD84E71CB979F0008A5097 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DD84E61CB979F0008A5097 /* Extensions.swift */; };
 		B1DFF3741CB0AC4500DD683B /* DetalheCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DFF3731CB0AC4500DD683B /* DetalheCell.swift */; };
@@ -90,6 +91,7 @@
 		B14E23C81CAB614500F0F518 /* DeputadosDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeputadosDataController.swift; sourceTree = "<group>"; };
 		B14E23CA1CAB6CC300F0F518 /* DeputadosTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeputadosTableViewController.swift; sourceTree = "<group>"; };
 		B16E964B1CAF4EAE0036D2D0 /* DetalhesProjetoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetalhesProjetoViewController.swift; path = View/DetalhesProjetoViewController.swift; sourceTree = "<group>"; };
+		B174392B1CB9B28900AAD6EF /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B1D228FE1C984A35006C6FEB /* DiarioDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiarioDataController.swift; sourceTree = "<group>"; };
 		B1DD84E61CB979F0008A5097 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = View/Extensions.swift; sourceTree = "<group>"; };
 		B1DE27681C91B49A0084B517 /* AEXML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AEXML.framework; path = "Pods/../build/Debug-iphoneos/AEXML.framework"; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 				0B1283D81C7CBDCA00AD4B8C /* Main.storyboard */,
 				0B1283D61C7CBDCA00AD4B8C /* ViewController.swift */,
 				B1DD84E61CB979F0008A5097 /* Extensions.swift */,
+				B174392B1CB9B28900AAD6EF /* Constants.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -479,6 +482,7 @@
 				B1158EBF1C96EA2B00DDF6A8 /* CDProposicao.m in Sources */,
 				B1158EBD1C96EA2B00DDF6A8 /* CDDeputadoVotacao.m in Sources */,
 				B14E23BD1CA9A03300F0F518 /* VotacaoCell.swift in Sources */,
+				B174392C1CB9B28900AAD6EF /* Constants.swift in Sources */,
 				B1D228FF1C984A35006C6FEB /* DiarioDataController.swift in Sources */,
 				B1158EC01C96EA2B00DDF6A8 /* CDURLManager.m in Sources */,
 				0B1283DD1C7CBDCA00AD4B8C /* swift_radar_poli_tico.xcdatamodeld in Sources */,

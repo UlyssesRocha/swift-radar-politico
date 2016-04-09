@@ -10,6 +10,7 @@ import UIKit
 
 class DetalhesProposicaoViewController: UITableViewController {
 
+    @IBOutlet weak var bkHeaderView: UIView!
     @IBOutlet weak var tituloProposicaoLabel: UILabel!
     @IBOutlet weak var autorNomeLabel: UILabel!
     @IBOutlet weak var lerProjetoButton: UIButton!
@@ -42,6 +43,10 @@ class DetalhesProposicaoViewController: UITableViewController {
         
         self.tituloProposicaoLabel.text = proposicao?.nome
         self.autorNomeLabel.text = proposicao?.nomeAutor
+        
+        self.bkHeaderView.roundCorner()
+        self.bkHeaderView.highlightCorner()
+        self.tableView.backgroundColor = UIColor(netHex: Constants.background)
     }
 
 

@@ -56,7 +56,9 @@ class DeputadosTableViewController: UITableViewController,UISearchBarDelegate, U
     
     func filterContentForSearchText(searchText: String , scope: String = "Todos") {
         self.filteredResults = DeputadosDataController.sharedInstance.deputados!.filter({( deputado : CDDeputado) -> Bool in
+            
             var scopeFilter:Bool = false
+            
             switch scope {
                 case "Seguindo":
                 scopeFilter = DeputadosDataController.sharedInstance.isDeputadoFoollowed(Int(deputado.ideCadastro))
@@ -68,12 +70,17 @@ class DeputadosTableViewController: UITableViewController,UISearchBarDelegate, U
                 scopeFilter = true
             }
             
-            if searchText == "" {
+            if searchText.isEmpty {
                 return scopeFilter
             }
             
-            return scopeFilter && (deputado.nome.lowercaseString.containsString(searchText.lowercaseString) || (deputado.partido.lowercaseString.containsString(searchText.lowercaseString) || (deputado.nomeParlamentar.lowercaseString.containsString(searchText.lowercaseString))))
+            let textFilter = (deputado.nome.lowercaseString.containsString(searchText.lowercaseString) ||
+                             (deputado.partido.lowercaseString.containsString(searchText.lowercaseString) ||
+                             (deputado.nomeParlamentar.lowercaseString.containsString(searchText.lowercaseString))))
+            
+            return scopeFilter && textFilter
         })
+        
         tableView.reloadData()
     }
 
