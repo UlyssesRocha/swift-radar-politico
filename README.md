@@ -1,11 +1,10 @@
 # Radar Politico
-Um projeto de cidadania feito para rastrear atividade parlamentar de deputados brasileiros.
-
+Um projeto de cidadania feito para rastrear atividade parlamentar de Deputados Federais Brasileiros.
 
 - Você lembra em quem votou para Deputado Federal? 
 - Sabe o que ele anda fazendo na Câmara dos Deputados? 
 
-Acompanhe a atividade parlamentar com esse projeto!
+Acompanhe toda a atividade parlamentar com esse projeto!
 
 ## Funcionalidades
 Colabore com novas funcionalidades e venha aprimorar essa ferramenta de Cidadania.
