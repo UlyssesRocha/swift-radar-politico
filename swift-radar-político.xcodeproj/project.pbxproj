@@ -31,6 +31,8 @@
 		B16E964C1CAF4EAE0036D2D0 /* DetalhesProjetoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16E964B1CAF4EAE0036D2D0 /* DetalhesProjetoViewController.swift */; };
 		B174392C1CB9B28900AAD6EF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B174392B1CB9B28900AAD6EF /* Constants.swift */; };
 		B17439321CBAA53B00AAD6EF /* VotacaoDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17439311CBAA53B00AAD6EF /* VotacaoDetailCell.swift */; };
+		B193A1AC1CBAC7A3004BE3C7 /* VotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B193A1AB1CBAC7A3004BE3C7 /* VotosViewController.swift */; };
+		B193A1AE1CBAD3D1004BE3C7 /* VotoDeputadoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B193A1AD1CBAD3D1004BE3C7 /* VotoDeputadoCell.swift */; };
 		B1D228FF1C984A35006C6FEB /* DiarioDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D228FE1C984A35006C6FEB /* DiarioDataController.swift */; };
 		B1DD84E71CB979F0008A5097 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DD84E61CB979F0008A5097 /* Extensions.swift */; };
 		B1DFF3741CB0AC4500DD683B /* DetalheCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DFF3731CB0AC4500DD683B /* DetalheCell.swift */; };
@@ -92,6 +94,8 @@
 		B16E964B1CAF4EAE0036D2D0 /* DetalhesProjetoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetalhesProjetoViewController.swift; path = View/DetalhesProjetoViewController.swift; sourceTree = "<group>"; };
 		B174392B1CB9B28900AAD6EF /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B17439311CBAA53B00AAD6EF /* VotacaoDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VotacaoDetailCell.swift; path = View/VotacaoDetailCell.swift; sourceTree = "<group>"; };
+		B193A1AB1CBAC7A3004BE3C7 /* VotosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VotosViewController.swift; path = View/VotosViewController.swift; sourceTree = "<group>"; };
+		B193A1AD1CBAD3D1004BE3C7 /* VotoDeputadoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VotoDeputadoCell.swift; path = View/VotoDeputadoCell.swift; sourceTree = "<group>"; };
 		B1D228FE1C984A35006C6FEB /* DiarioDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiarioDataController.swift; sourceTree = "<group>"; };
 		B1DD84E61CB979F0008A5097 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = View/Extensions.swift; sourceTree = "<group>"; };
 		B1DE27681C91B49A0084B517 /* AEXML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AEXML.framework; path = "Pods/../build/Debug-iphoneos/AEXML.framework"; sourceTree = "<group>"; };
@@ -220,6 +224,7 @@
 				B174392E1CBAA4CE00AAD6EF /* Cells */,
 				B1158EC71C96EFB400DDF6A8 /* DiarioPoliticoTableViewController.swift */,
 				B16E964B1CAF4EAE0036D2D0 /* DetalhesProjetoViewController.swift */,
+				B193A1AB1CBAC7A3004BE3C7 /* VotosViewController.swift */,
 			);
 			name = Diario;
 			sourceTree = "<group>";
@@ -292,6 +297,7 @@
 				B14E23BE1CA9AB2900F0F518 /* ConteudoCell.swift */,
 				B1DFF3731CB0AC4500DD683B /* DetalheCell.swift */,
 				B17439311CBAA53B00AAD6EF /* VotacaoDetailCell.swift */,
+				B193A1AD1CBAD3D1004BE3C7 /* VotoDeputadoCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -493,8 +499,10 @@
 				B174392C1CB9B28900AAD6EF /* Constants.swift in Sources */,
 				B1D228FF1C984A35006C6FEB /* DiarioDataController.swift in Sources */,
 				B1158EC01C96EA2B00DDF6A8 /* CDURLManager.m in Sources */,
+				B193A1AC1CBAC7A3004BE3C7 /* VotosViewController.swift in Sources */,
 				0B1283DD1C7CBDCA00AD4B8C /* swift_radar_poli_tico.xcdatamodeld in Sources */,
 				B1158EC11C96EA2B00DDF6A8 /* CDVotacao.m in Sources */,
+				B193A1AE1CBAD3D1004BE3C7 /* VotoDeputadoCell.swift in Sources */,
 				B1DD84E71CB979F0008A5097 /* Extensions.swift in Sources */,
 				B14E23BF1CA9AB2900F0F518 /* ConteudoCell.swift in Sources */,
 				B1158EC81C96EFB400DDF6A8 /* DiarioPoliticoTableViewController.swift in Sources */,

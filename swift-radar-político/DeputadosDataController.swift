@@ -66,6 +66,17 @@ class DeputadosDataController: NSObject {
         return followedDeputadosID!.count
     }
     
+    func getDeputadoByName(name:String)->CDDeputado?{
+       let response =  self.deputados?.filter({ (deputado) -> Bool in
+            return deputado.nomeParlamentar.lowercaseString.containsString(name.lowercaseString) || deputado.nome.lowercaseString.containsString(name.lowercaseString)
+        })
+        if response!.count == 0{
+            print("ninguem")
+        }
+        
+        return response?.first
+    }
+    
     func getFollowedDeputadoWith(index:Int)->CDDeputado?{
         
         if deputados == nil || index > self.getNumberOfFollowedDeputados(){

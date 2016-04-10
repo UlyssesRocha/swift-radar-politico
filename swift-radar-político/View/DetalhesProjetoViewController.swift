@@ -9,12 +9,11 @@
 import UIKit
 
 class DetalhesProposicaoViewController: UITableViewController {
-
+    //MARK: Outlets
     @IBOutlet weak var bkHeaderView: UIView!
     @IBOutlet weak var tituloProposicaoLabel: UILabel!
     @IBOutlet weak var autorNomeLabel: UILabel!
     @IBOutlet weak var lerProjetoButton: UIButton!
-    
     @IBOutlet weak var segmentControll: UISegmentedControl!
     
     private var proposicao:CDProposicao?
@@ -42,13 +41,14 @@ class DetalhesProposicaoViewController: UITableViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
+        self.tableView.backgroundColor = UIColor(netHex: Constants.background)
+
         self.tituloProposicaoLabel.text = proposicao?.nome
         self.autorNomeLabel.text = proposicao?.nomeAutor
         
         self.bkHeaderView.roundCorner()
         self.bkHeaderView.highlightCorner()
-        self.tableView.backgroundColor = UIColor(netHex: Constants.background)
+        
         self.lerProjetoButton.roundCorner()
     }
 
@@ -71,7 +71,7 @@ class DetalhesProposicaoViewController: UITableViewController {
             return itemData.1.calculateHeightForString(16.0, screnSize: self.view.frame.size, padding: 35.0) + 50
         }else{
             let votacao = (self.proposicao?.votacoes[indexPath.row] as! CDVotacao)
-            return votacao.objVotacao.calculateHeightForString(16.0, screnSize: self.tableView.frame.size, padding: 40.0) + votacao.resumo.calculateHeightForString(16.0, screnSize: self.tableView.frame.size, padding: 40.0) + 70
+            return votacao.objVotacao.calculateHeightForString(16.0, screnSize: self.tableView.frame.size, padding: 40.0) + votacao.resumo.calculateHeightForString(16.0, screnSize: self.tableView.frame.size, padding: 40.0) + 100
         }
     }
     
@@ -86,7 +86,7 @@ class DetalhesProposicaoViewController: UITableViewController {
             
             return cell
         }else{
-            let cell = self.tableView.dequeueReusableCellWithIdentifier("Teste", forIndexPath: indexPath) as! VotacaoDetailCell
+            let cell = self.tableView.dequeueReusableCellWithIdentifier("VotacaoDetailCell", forIndexPath: indexPath) as! VotacaoDetailCell
             
             cell.loadWithVotaocao(self.proposicao?.votacoes[indexPath.row] as! CDVotacao)
             
@@ -94,6 +94,21 @@ class DetalhesProposicaoViewController: UITableViewController {
         }
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        //Goto VotosViewController
+        if self.segmentControll.selectedSegmentIndex == 1 {
+            self.performSegueWithIdentifier("VotosSegue", sender: (self.proposicao?.votacoes[indexPath.row] as! CDVotacao))
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let votacaoView =  segue.destinationViewController as! VotosViewController
+        votacaoView.votacao = (sender as! CDVotacao)
+    }
+    
+    
+    //MARK: IBAction
     @IBAction func didChangeSegmentIndex(sender: AnyObject) {
         self.tableView.reloadData()
     }

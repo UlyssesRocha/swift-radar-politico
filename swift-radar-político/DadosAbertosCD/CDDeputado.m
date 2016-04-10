@@ -79,9 +79,17 @@
 
 
 - (void)loadPhoto:(UIImageView*)photo{
-    if (self.urlFoto){
-        NSURL *urlImage = [[NSURL alloc] initWithString:self.urlFoto];
-        [photo setImageWithURL:urlImage];
+    if (self.imgFoto != NULL){
+        [photo setImage:self.imgFoto.image];
+    }
+    else{
+        if (self.urlFoto){
+            NSURL *urlImage = [[NSURL alloc] initWithString:self.urlFoto];
+            [photo setImageWithURL:urlImage];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.imgFoto setImageWithURL:urlImage];
+            });
+        }
     }
 }
 

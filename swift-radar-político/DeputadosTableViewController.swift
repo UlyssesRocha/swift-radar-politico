@@ -35,13 +35,12 @@ class DeputadosTableViewController: UITableViewController,UISearchBarDelegate, U
     
     // MARK: - Table view data source
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        
         return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return  searchController.active ? self.filteredResults.count :DeputadosDataController.sharedInstance.deputados?.count ?? 0
+        return searchController.active ? self.filteredResults.count : DeputadosDataController.sharedInstance.deputados?.count ?? 0
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

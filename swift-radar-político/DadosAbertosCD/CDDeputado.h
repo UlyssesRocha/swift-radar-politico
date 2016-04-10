@@ -20,6 +20,7 @@
 @property (nonatomic) NSString *nome;
 @property (nonatomic) NSString *nomeParlamentar;
 @property (nonatomic) NSString *urlFoto;
+@property (nonatomic) UIImageView *imgFoto;
 
 @property (nonatomic) NSString *partido;
 
