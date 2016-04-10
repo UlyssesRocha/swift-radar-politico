@@ -290,6 +290,9 @@
                                                 <segment title="Votações"/>
                                             </segments>
                                             <color key="tintColor" red="0.15558276169999999" green="0.57697669389999995" blue="0.4933186578" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <action selector="didChangeSegmentIndex:" destination="Ovv-IB-Uw6" eventType="valueChanged" id="tKN-U7-OjM"/>
+                                            </connections>
                                         </segmentedControl>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome do autor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gDc-4a-5Bk">
                                             <rect key="frame" x="236" y="68" width="112" height="21"/>
@@ -326,8 +329,69 @@
                             </constraints>
                         </view>
                         <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Teste" rowHeight="135" id="gpU-pS-P5E" customClass="VotacaoDetailCell" customModule="swift_radar_poli_tico" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="326" width="600" height="135"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gpU-pS-P5E" id="Irf-YR-5La">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="134.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bOR-6b-mVW">
+                                            <rect key="frame" x="8" y="8" width="584" height="17"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Objeto da Votação" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ngl-A2-1Xk">
+                                            <rect key="frame" x="8" y="27" width="119.5" height="17"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5t5-Pn-Wag">
+                                            <rect key="frame" x="8" y="88" width="584" height="18"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="t7f-K5-RLp">
+                                            <rect key="frame" x="8" y="47" width="584" height="18"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Resumo : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d4m-fs-jnL">
+                                            <rect key="frame" x="8" y="73" width="115" height="14.5"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="5t5-Pn-Wag" firstAttribute="leading" secondItem="d4m-fs-jnL" secondAttribute="leading" id="1WT-8b-dgW"/>
+                                        <constraint firstItem="ngl-A2-1Xk" firstAttribute="leading" secondItem="bOR-6b-mVW" secondAttribute="trailing" constant="-584" id="2h7-0b-8uZ"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="t7f-K5-RLp" secondAttribute="trailing" id="6e4-RL-gK8"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="5t5-Pn-Wag" secondAttribute="trailing" id="HJd-sh-1x8"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="bOR-6b-mVW" secondAttribute="leading" id="J6r-2L-947"/>
+                                        <constraint firstAttribute="topMargin" secondItem="bOR-6b-mVW" secondAttribute="top" id="Mry-u0-xaQ"/>
+                                        <constraint firstItem="ngl-A2-1Xk" firstAttribute="leading" secondItem="bOR-6b-mVW" secondAttribute="leading" id="NE8-06-TiF"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="bOR-6b-mVW" secondAttribute="trailing" id="OMX-R7-1RN"/>
+                                        <constraint firstItem="5t5-Pn-Wag" firstAttribute="top" secondItem="d4m-fs-jnL" secondAttribute="bottom" constant="0.5" id="UHr-5n-Xyr"/>
+                                        <constraint firstItem="d4m-fs-jnL" firstAttribute="top" secondItem="t7f-K5-RLp" secondAttribute="bottom" constant="8" id="aDt-R8-s0k"/>
+                                        <constraint firstItem="d4m-fs-jnL" firstAttribute="leading" secondItem="t7f-K5-RLp" secondAttribute="leading" id="gx0-bx-EW8"/>
+                                        <constraint firstItem="ngl-A2-1Xk" firstAttribute="top" secondItem="bOR-6b-mVW" secondAttribute="bottom" constant="2" id="tbk-3l-RLg"/>
+                                        <constraint firstItem="t7f-K5-RLp" firstAttribute="top" secondItem="ngl-A2-1Xk" secondAttribute="bottom" constant="3" id="uSU-zY-QHi"/>
+                                        <constraint firstItem="t7f-K5-RLp" firstAttribute="leading" secondItem="ngl-A2-1Xk" secondAttribute="leading" id="w6v-K5-aLi"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="dataLabel" destination="bOR-6b-mVW" id="zxV-Xo-vza"/>
+                                    <outlet property="objetoVotacaoLabel" destination="t7f-K5-RLp" id="aKu-UM-DuM"/>
+                                    <outlet property="resumoVotacaoLabel" destination="5t5-Pn-Wag" id="83f-pO-qzo"/>
+                                </connections>
+                            </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetalheCell" id="Xti-4t-Fan" customClass="DetalheCell" customModule="swift_radar_poli_tico" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="326" width="600" height="108"/>
+                                <rect key="frame" x="0.0" y="461" width="600" height="108"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xti-4t-Fan" id="H4y-4w-GIE">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="107.5"/>
@@ -384,6 +448,7 @@
                         <outlet property="autorNomeLabel" destination="gDc-4a-5Bk" id="17Q-1w-6Ba"/>
                         <outlet property="bkHeaderView" destination="jIj-cu-GF7" id="hdV-FU-mea"/>
                         <outlet property="lerProjetoButton" destination="kl2-ib-peo" id="IwB-q9-vfw"/>
+                        <outlet property="segmentControll" destination="ZKL-3u-PKU" id="0iN-lO-7yh"/>
                         <outlet property="tituloProposicaoLabel" destination="Zpn-ka-G9P" id="I21-ty-OVL"/>
                     </connections>
                 </tableViewController>
@@ -407,7 +472,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="59.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" onImage="4C14D1C9-100D-420F-BE13-703EBEAF6F4A" offImage="9E81DABA-ED93-48EB-B25B-41C91A859017" translatesAutoresizingMaskIntoConstraints="NO" id="aY8-rk-ihD">
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" onImage="31804E07-F708-4FC8-97C2-24ED850DBABE" offImage="A651E57B-159C-4C57-B925-B6CB72CB693D" translatesAutoresizingMaskIntoConstraints="NO" id="aY8-rk-ihD">
                                             <rect key="frame" x="533" y="14" width="51" height="31"/>
                                             <color key="onTintColor" red="0.1843137255" green="0.68627450980000004" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
@@ -504,7 +569,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="4C14D1C9-100D-420F-BE13-703EBEAF6F4A" width="42" height="34">
+        <image name="31804E07-F708-4FC8-97C2-24ED850DBABE" width="42" height="34">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -650,7 +715,7 @@ ALIAtQC3ALkAuwC9AMIA2QDbAN0fzx/UH98f6B/7H/8gCiATIBggICAjICggNyA7IEIgSiBXIFwgXiBg
 IGUgbSBwIHUgfSCAIJIglSCaAAAAAAAAAgEAAAAAAAAAQQAAAAAAAAAAAAAAAAAAIJw
 </mutableData>
         </image>
-        <image name="9E81DABA-ED93-48EB-B25B-41C91A859017" width="42" height="34">
+        <image name="A651E57B-159C-4C57-B925-B6CB72CB693D" width="42" height="34">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

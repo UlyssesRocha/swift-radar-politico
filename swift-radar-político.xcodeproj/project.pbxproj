@@ -30,6 +30,7 @@
 		B14E23CB1CAB6CC300F0F518 /* DeputadosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14E23CA1CAB6CC300F0F518 /* DeputadosTableViewController.swift */; };
 		B16E964C1CAF4EAE0036D2D0 /* DetalhesProjetoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16E964B1CAF4EAE0036D2D0 /* DetalhesProjetoViewController.swift */; };
 		B174392C1CB9B28900AAD6EF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B174392B1CB9B28900AAD6EF /* Constants.swift */; };
+		B17439321CBAA53B00AAD6EF /* VotacaoDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17439311CBAA53B00AAD6EF /* VotacaoDetailCell.swift */; };
 		B1D228FF1C984A35006C6FEB /* DiarioDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D228FE1C984A35006C6FEB /* DiarioDataController.swift */; };
 		B1DD84E71CB979F0008A5097 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DD84E61CB979F0008A5097 /* Extensions.swift */; };
 		B1DFF3741CB0AC4500DD683B /* DetalheCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DFF3731CB0AC4500DD683B /* DetalheCell.swift */; };
@@ -90,6 +91,7 @@
 		B14E23CA1CAB6CC300F0F518 /* DeputadosTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeputadosTableViewController.swift; sourceTree = "<group>"; };
 		B16E964B1CAF4EAE0036D2D0 /* DetalhesProjetoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetalhesProjetoViewController.swift; path = View/DetalhesProjetoViewController.swift; sourceTree = "<group>"; };
 		B174392B1CB9B28900AAD6EF /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B17439311CBAA53B00AAD6EF /* VotacaoDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VotacaoDetailCell.swift; path = View/VotacaoDetailCell.swift; sourceTree = "<group>"; };
 		B1D228FE1C984A35006C6FEB /* DiarioDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiarioDataController.swift; sourceTree = "<group>"; };
 		B1DD84E61CB979F0008A5097 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = View/Extensions.swift; sourceTree = "<group>"; };
 		B1DE27681C91B49A0084B517 /* AEXML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AEXML.framework; path = "Pods/../build/Debug-iphoneos/AEXML.framework"; sourceTree = "<group>"; };
@@ -215,11 +217,9 @@
 		B12389491C999E4600D50ACB /* Diario */ = {
 			isa = PBXGroup;
 			children = (
+				B174392E1CBAA4CE00AAD6EF /* Cells */,
 				B1158EC71C96EFB400DDF6A8 /* DiarioPoliticoTableViewController.swift */,
-				B14E23BC1CA9A03300F0F518 /* VotacaoCell.swift */,
-				B14E23BE1CA9AB2900F0F518 /* ConteudoCell.swift */,
 				B16E964B1CAF4EAE0036D2D0 /* DetalhesProjetoViewController.swift */,
-				B1DFF3731CB0AC4500DD683B /* DetalheCell.swift */,
 			);
 			name = Diario;
 			sourceTree = "<group>";
@@ -283,6 +283,17 @@
 				B14E23CA1CAB6CC300F0F518 /* DeputadosTableViewController.swift */,
 			);
 			name = Deputados;
+			sourceTree = "<group>";
+		};
+		B174392E1CBAA4CE00AAD6EF /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B14E23BC1CA9A03300F0F518 /* VotacaoCell.swift */,
+				B14E23BE1CA9AB2900F0F518 /* ConteudoCell.swift */,
+				B1DFF3731CB0AC4500DD683B /* DetalheCell.swift */,
+				B17439311CBAA53B00AAD6EF /* VotacaoDetailCell.swift */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -352,7 +363,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0720;
-				ORGANIZATIONNAME = "Francisco José A. C. Souza";
+				ORGANIZATIONNAME = "Dados Abertos Brasil";
 				TargetAttributes = {
 					0B1283D01C7CBDCA00AD4B8C = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -472,6 +483,7 @@
 				B1158EBC1C96EA2B00DDF6A8 /* CDDeputado.m in Sources */,
 				B16E964C1CAF4EAE0036D2D0 /* DetalhesProjetoViewController.swift in Sources */,
 				B1158EC41C96EA4000DDF6A8 /* XMLReader.m in Sources */,
+				B17439321CBAA53B00AAD6EF /* VotacaoDetailCell.swift in Sources */,
 				B14E23C61CAB231E00F0F518 /* DeputadoCell.swift in Sources */,
 				0B1283D51C7CBDCA00AD4B8C /* AppDelegate.swift in Sources */,
 				B1DFF3741CB0AC4500DD683B /* DetalheCell.swift in Sources */,

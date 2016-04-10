@@ -15,6 +15,7 @@ class DetalhesProposicaoViewController: UITableViewController {
     @IBOutlet weak var autorNomeLabel: UILabel!
     @IBOutlet weak var lerProjetoButton: UIButton!
     
+    @IBOutlet weak var segmentControll: UISegmentedControl!
     
     private var proposicao:CDProposicao?
     private let sections = ["Detalhes","Votacoes"]
@@ -48,35 +49,53 @@ class DetalhesProposicaoViewController: UITableViewController {
         self.bkHeaderView.roundCorner()
         self.bkHeaderView.highlightCorner()
         self.tableView.backgroundColor = UIColor(netHex: Constants.background)
+        self.lerProjetoButton.roundCorner()
     }
 
 
     // MARK: - Table view data source
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        
-        return self.sections.count
+        return self.segmentControll.selectedSegmentIndex == 0 ? self.sections.count : 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return (section == 0 ? calcNumberOfRows() : 0)
+        return self.segmentControll.selectedSegmentIndex == 0 ? (section == 0 ? calcNumberOfRows() : 0) : self.proposicao!.votacoes.count
     }
     
+    //TODO: Improve calc of height
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
-        let itemData = getNextDetailItem(indexPath.row)
-        return itemData.1.calculateHeightForString(16.0, screnSize: self.view.frame.size, padding: 35.0) + 50
+        if self.segmentControll.selectedSegmentIndex == 0 {
+            let itemData = getNextDetailItem(indexPath.row)
+            return itemData.1.calculateHeightForString(16.0, screnSize: self.view.frame.size, padding: 35.0) + 50
+        }else{
+            let votacao = (self.proposicao?.votacoes[indexPath.row] as! CDVotacao)
+            return votacao.objVotacao.calculateHeightForString(16.0, screnSize: self.tableView.frame.size, padding: 40.0) + votacao.resumo.calculateHeightForString(16.0, screnSize: self.tableView.frame.size, padding: 40.0) + 70
+        }
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("DetalheCell", forIndexPath: indexPath) as! DetalheCell
+        if self.segmentControll.selectedSegmentIndex == 0 {
+            let cell = self.tableView.dequeueReusableCellWithIdentifier("DetalheCell", forIndexPath: indexPath) as! DetalheCell
 
-        let itemData = getNextDetailItem(indexPath.row)
-        cell.infoLabel?.text = itemData.0
-        cell.dataText.text = itemData.1
-        
-        return cell
+            let itemData = getNextDetailItem(indexPath.row)
+            cell.infoLabel?.text = itemData.0
+            cell.dataText.text = itemData.1
+            
+            return cell
+        }else{
+            let cell = self.tableView.dequeueReusableCellWithIdentifier("Teste", forIndexPath: indexPath) as! VotacaoDetailCell
+            
+            cell.loadWithVotaocao(self.proposicao?.votacoes[indexPath.row] as! CDVotacao)
+            
+            return cell
+        }
+    }
+    
+    @IBAction func didChangeSegmentIndex(sender: AnyObject) {
+        self.tableView.reloadData()
     }
     
     @IBAction func lerProjeto(sender: AnyObject) {

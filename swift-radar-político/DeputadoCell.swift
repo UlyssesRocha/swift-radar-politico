@@ -41,8 +41,8 @@ class DeputadoCell: UITableViewCell {
         
         self.fotoImage.layer.cornerRadius = 15;
         self.fotoImage.layer.masksToBounds = true
-        self.fotoImage.layer.borderWidth = 1
-        self.fotoImage.layer.borderColor = UIColor.yellowColor().CGColor
+        self.fotoImage.layer.borderWidth = 1.0
+        self.fotoImage.layer.borderColor = UIColor(netHex: Constants.green).CGColor
         self.deputado?.loadPhoto(self.fotoImage)
         
         if DeputadosDataController.sharedInstance.isDeputadoFoollowed(Int(self.deputado!.ideCadastro)){
