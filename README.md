@@ -14,7 +14,9 @@ Colabore com novas funcionalidades e venha aprimorar essa ferramenta de Cidadani
 - [ ] Perfil do deputado
 - [ ] Acompanhar Presenças do Deputado
 - [ ] Exibir indicações das bancadas de cada partido
-- [ ] Push Notification sobre novas Votações
+- [ ] Push Notification 
+
+Outras possibilidades
 - [ ] Listar empresas que financiaram campanha do deputado
 - [ ] Exibir noticias relacionadas ao deputado
 
