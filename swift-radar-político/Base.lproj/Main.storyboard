@@ -14,6 +14,11 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="FUd-f4-PXj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.10588235294117647" green="0.36862745098039218" blue="0.12549019607843137" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="RNB-Pa-mII" kind="relationship" relationship="rootViewController" id="U3B-WL-nJz"/>
@@ -50,6 +55,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="selectedImageTintColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.10588235294117647" green="0.36862745098039218" blue="0.12549019607843137" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="zW9-mr-4DI" kind="relationship" relationship="viewControllers" id="ems-fx-9vL"/>
@@ -226,7 +239,7 @@
                             <outlet property="delegate" destination="zW9-mr-4DI" id="Ssq-uB-M8s"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Diario" id="aJj-b4-q11"/>
+                    <tabBarItem key="tabBarItem" title="Diario" image="people" id="aJj-b4-q11"/>
                     <navigationItem key="navigationItem" title="Votações na Câmara" id="4yA-XK-SXw"/>
                     <connections>
                         <segue destination="Ovv-IB-Uw6" kind="show" identifier="DetalhesProposicao" id="etz-qb-N3b"/>
@@ -546,7 +559,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="59.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" onImage="97FFD751-31C4-4B96-B170-AC287D643B90" offImage="7B40EA29-23D8-4650-9B4A-A85DB1FCDCAC" translatesAutoresizingMaskIntoConstraints="NO" id="aY8-rk-ihD">
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" onImage="7E027D86-899A-4646-88D4-897BD8FDC906" offImage="132E3B81-9601-464F-A0B4-E3F7ACDA604F" translatesAutoresizingMaskIntoConstraints="NO" id="aY8-rk-ihD">
                                             <rect key="frame" x="533" y="14" width="51" height="31"/>
                                             <color key="onTintColor" red="0.1843137255" green="0.68627450980000004" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
@@ -607,7 +620,7 @@
                             <outlet property="delegate" destination="mGh-Nt-y6G" id="90U-P5-UfX"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Deputados" id="ceQ-VR-7l0"/>
+                    <tabBarItem key="tabBarItem" title="Deputados" image="magnifying-glass" id="ceQ-VR-7l0"/>
                     <navigationItem key="navigationItem" title="Deputados" id="TU0-xf-DED"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="35W-N8-dYV" id="yo3-qY-Idx"/>
@@ -643,7 +656,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="7B40EA29-23D8-4650-9B4A-A85DB1FCDCAC" width="42" height="34">
+        <image name="132E3B81-9601-464F-A0B4-E3F7ACDA604F" width="42" height="34">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -789,7 +802,7 @@ ALIAtQC3ALkAuwC9AMIA2QDbAN0fzx/UH98f6B/7H/8gCiATIBggICAjICggNyA7IEIgSiBXIFwgXiBg
 IGUgbSBwIHUgfSCAIJIglSCaAAAAAAAAAgEAAAAAAAAAQQAAAAAAAAAAAAAAAAAAIJw
 </mutableData>
         </image>
-        <image name="97FFD751-31C4-4B96-B170-AC287D643B90" width="42" height="34">
+        <image name="7E027D86-899A-4646-88D4-897BD8FDC906" width="42" height="34">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -935,5 +948,7 @@ ALIAtQC3ALkAuwC9AMIA2QDbAN0fzx/UH98f6B/7H/8gCiATIBggICAjICggNyA7IEIgSiBXIFwgXiBg
 IGUgbSBwIHUgfSCAIJIglSCaAAAAAAAAAgEAAAAAAAAAQQAAAAAAAAAAAAAAAAAAIJw
 </mutableData>
         </image>
+        <image name="magnifying-glass" width="21" height="21"/>
+        <image name="people" width="21" height="21"/>
     </resources>
 </document>
