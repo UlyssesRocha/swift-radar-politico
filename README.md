@@ -66,6 +66,10 @@ Outras possibilidades
   <img src="https://cloud.githubusercontent.com/assets/6699862/14492565/810dce0e-0156-11e6-9d2d-60d117159ee8.png" width="500"/>
 </p>
 
+## Licença 
+
+                    GNU GENERAL PUBLIC LICENSE
+                       Version 2, June 1991
 
 
 
