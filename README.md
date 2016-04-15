@@ -7,6 +7,16 @@ Um projeto de cidadania feito para rastrear atividade parlamentar de Deputados F
 
 Acompanhe toda a atividade parlamentar com esse projeto!
 
+## Instruções
+> Desenvolvido no Xcode 7.3
+
+Após clonar o repositório, vá para a pasta e execute na linha de comando:
+
+```sh
+pod install
+```
+Depois, abra o arquivo swift-radar-político.xcworkspace, e execute o projeto :-)
+
 ## Funcionalidades
 Colabore com novas funcionalidades e venha aprimorar essa ferramenta de Cidadania.
 
